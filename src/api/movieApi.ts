@@ -1,9 +1,10 @@
 import { Movie } from "../types";
+const apiKey = import.meta.env.VITE_API_KEY;
 const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNjNlMDdmNWY5ZmZmYmZkZDdjNWZjNDQxMGY4MzU0ZiIsIm5iZiI6MTU1MDQxMzEwMy41NDcwMDAyLCJzdWIiOiI1YzY5NmQyZjkyNTE0MTdkZjQwNDE0OTMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.kjEgvXZiIApfzW8_hhoyav3Q-C5WQqbDbadhAXxoaZs'
+      Authorization: `Bearer ${apiKey}`
     }
   };
 const BASE_URL = "https://api.themoviedb.org/3/search/movie";

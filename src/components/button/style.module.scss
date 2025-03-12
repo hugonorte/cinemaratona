@@ -1,0 +1,30 @@
+@use "../../styles/color" as colors;
+
+.button {
+    background: colors.$background-blue-button;
+    background: colors.$background-blue-button-moz;
+    background: colors.$background-blue-button-webkit;
+    background: colors.$background-blue-button-linear;
+    filter: colors.$background-blue-button-filter;
+    color: white;
+    padding: 0.888rem 1.888rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: font-size 0.3s ease-in-out, background 0.3s ease-in-out;
+    font-size: 0.888rem;
+
+    &:hover {
+        font-size: 0.999rem;
+        cursor: pointer;
+        background: colors.$background-blue-button-hover;
+        background: colors.$background-blue-button-hover-moz;
+        background: colors.$background-blue-button-hover-webkit;
+        background: colors.$background-blue-button-hover-linear;
+        filter: colors.$background-blue-button-hover-filter;
+    }
+}
+
+.border {
+    border: 1px solid black;
+}

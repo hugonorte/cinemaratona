@@ -1,0 +1,43 @@
+@use "sass:color";
+
+$red:#FF0000;
+$white:#FFFFFF;
+$blue:#0066ff;
+
+$button-border: #4cb0c2;
+
+$background-blue-button: rgb(58, 87, 180);
+$background-blue-button-moz: -moz-linear-gradient(90deg, rgba(58, 87, 180, 1) 0%, rgba(29, 135, 253, 1) 50%, rgba(69, 82, 252, 1) 100%);
+$background-blue-button-webkit: -webkit-linear-gradient(90deg, rgba(58, 87, 180, 1) 0%, rgba(29, 135, 253, 1) 50%, rgba(69, 82, 252, 1) 100%);
+$background-blue-button-linear: linear-gradient(90deg, rgba(58, 87, 180, 1) 0%, rgba(29, 135, 253, 1) 50%, rgba(69, 82, 252, 1) 100%);
+$background-blue-button-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3a57b4", endColorstr="#4552fc", GradientType=1);
+
+$background-blue-button-hover: rgb(58, 71, 180);
+$background-blue-button-hover-moz: -moz-linear-gradient(90deg, rgba(58, 71, 180, 1) 0%, rgba(25, 126, 240, 1) 50%, rgba(54, 67, 240, 1) 100%);
+$background-blue-button-hover-webkit: -webkit-linear-gradient(90deg, rgba(58, 71, 180, 1) 0%, rgba(25, 126, 240, 1) 50%, rgba(54, 67, 240, 1) 100%);
+$background-blue-button-hover-linear: linear-gradient(90deg, rgba(58, 71, 180, 1) 0%, rgba(25, 126, 240, 1) 50%, rgba(54, 67, 240, 1) 100%);
+$background-blue-button-hover-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3a47b4", endColorstr="#3643f0", GradientType=1);
+
+/*Blue color in Darker variations*/
+$blue_dark1:color.scale($blue, $lightness: -10%, $space: oklch);
+$blue_dark2:color.scale($blue, $lightness: -20%, $space: oklch);
+$blue_dark3:color.scale($blue, $lightness: -30%, $space: oklch);  
+$blue_dark4:color.scale($blue, $lightness: -40%, $space: oklch);
+$blue_dark5:color.scale($blue, $lightness: -50%, $space: oklch);
+$blue_dark6:color.scale($blue, $lightness: -60%, $space: oklch);
+$blue_dark7:color.scale($blue, $lightness: -70%, $space: oklch);
+$blue_dark8:color.scale($blue, $lightness: -80%, $space: oklch);
+$blue_dark9:color.scale($blue, $lightness: -90%, $space: oklch);
+$blue_dark10:color.scale($blue, $lightness: -100%, $space: oklch);
+
+/*Blue color in Lighter variations*/
+$blue_light1:color.scale($blue, $lightness: 10%, $space: oklch);
+$blue_light2:color.scale($blue, $lightness: 20%, $space: oklch);
+$blue_light3:color.scale($blue, $lightness: 30%, $space: oklch);  
+$blue_light4:color.scale($blue, $lightness: 40%, $space: oklch);
+$blue_light5:color.scale($blue, $lightness: 50%, $space: oklch);
+$blue_light6:color.scale($blue, $lightness: 60%, $space: oklch);
+$blue_light7:color.scale($blue, $lightness: 70%, $space: oklch);
+$blue_light8:color.scale($blue, $lightness: 80%, $space: oklch);
+$blue_light9:color.scale($blue, $lightness: 90%, $space: oklch);
+$blue_light10:color.scale($blue, $lightness: 100%, $space: oklch);

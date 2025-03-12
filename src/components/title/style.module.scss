@@ -1,0 +1,34 @@
+.text {
+    text-decoration: none;
+    width: 100%;
+    margin-bottom:1rem;;
+
+    &.error {
+        color: #530000;
+    }
+    &.success {
+        color: #024400;
+    }
+    &.info {
+        color: #004ca3;
+    }
+    &.warning {
+        color: #ff8800;
+    }
+    &.black {
+        color: #000000;
+    }
+    &.gray {
+        color: #999999;
+    }
+    &.blue {
+        color: #005092;
+    }
+    &.white {
+        color: #FFFFFF;
+    }
+    &.default {
+        color: #FFFFFF;
+    }
+
+}

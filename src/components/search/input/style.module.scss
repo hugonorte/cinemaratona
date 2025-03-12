@@ -1,0 +1,43 @@
+@use "../../../styles/color" as colors;
+
+.search {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input {
+        flex-grow: 1;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border-top-color: colors.$button-border;
+        border-left-color: colors.$button-border;
+        border-bottom-color: colors.$button-border;
+        border-right: none;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+    }
+    button {
+        width: 20%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        background: colors.$background-blue-button;
+        background: colors.$background-blue-button-moz;
+        background: colors.$background-blue-button-webkit;
+        background: colors.$background-blue-button-linear;
+        filter: colors.$background-blue-button-filter;
+        color: colors.$white;
+        border-top-color: colors.$button-border;
+        border-right-color: colors.$button-border;
+        border-bottom-color: colors.$button-border;
+        border-right: none;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        font-weight: bold;
+
+        &:hover {
+            background: colors.$blue_dark1;
+        }
+    }
+}

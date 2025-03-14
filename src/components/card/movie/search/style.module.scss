@@ -7,3 +7,9 @@ h4 {
     font-size: 1rem;
     margin: 0;
 }
+.container {
+    max-width: 133px;
+    word-wrap: break-word; /* Garante que palavras longas sejam quebradas */
+    overflow-wrap: break-word; /* Funciona como alternativa ao word-wrap */
+    white-space: normal; /* Permite que o texto quebre em várias linhas */
+}

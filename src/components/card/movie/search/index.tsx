@@ -1,5 +1,6 @@
 import style from './style.module.scss'
 import Title from '../../../title'
+import imageNotFound from '@assets/img/movie_not_found.svg'
 
 interface CardMovieSearchProps {
     img_source: string;
@@ -8,9 +9,10 @@ interface CardMovieSearchProps {
 }
 
 function CardMovieSearch({ img_source, title, release_date }: CardMovieSearchProps) {
+  const image = img_source ? `https://image.tmdb.org/t/p/w500${img_source}` : imageNotFound;
   return (
     <div className={style.container}>
-        <img src={`https://image.tmdb.org/t/p/w500${img_source}`} alt="Imagem do filme" />
+        <img src={image} alt="Imagem do filme" />
         <Title tag="h4" customColor="#0c2b3c">
           {title}
         </Title>

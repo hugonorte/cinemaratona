@@ -5,7 +5,7 @@ Para poder utilizar esse código, será necessário:
 - Ter o GIT instalado no seu computador
 - Ter uma conta no Github
 - Ter a versão 22 do NodeJS instalada no seu computador
-- Ter uma conta de desenvovedor na plataforma **The Movie Database**. Para criar a sua conta, [clique aqui]('https://www.themoviedb.org/signup'). Após criar a sua conta, gere a sua chave de API. Ela é única, pessoal e intranferível.
+- Ter uma conta de desenvovedor na plataforma **The Movie Database**. Para criar a sua conta, [clique aqui]('https://www.themoviedb.org/signup'). Após criar a sua conta, gere a sua chave de API. Ela é única, pessoal e intransferível.
 
 ## IMPORTANTE:
 Quando for editar o código desse repositório, **jamais** utilize a branch master.Crie sempre uma nova branch para fazer o desenvolvimento.

@@ -1,6 +1,7 @@
 import style from './style.module.scss'
 import ButtonPrimary from '../button'
 import Logo from '../logo'
+import { Link } from 'react-router'
 
 function Header() {
   return (
@@ -8,8 +9,14 @@ function Header() {
         <Logo />
         <nav>
             <ul>
-                <li>Home</li>
-                <li>Filmes</li>
+                <li>
+                    <Link to={`/home`}>
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    Filmes
+                </li>
                 <li>Social</li>
                 <li>FAQ</li>
             </ul>

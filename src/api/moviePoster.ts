@@ -1,10 +1,10 @@
 import { MoviePoster } from "../types";
-const apiKey = import.meta.env.VITE_API_KEY;
+const accessToken = import.meta.env.VITE_API_ACCESS_TOKEN;
 const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: `Bearer ${apiKey}`
+      Authorization: `Bearer ${accessToken}`
     }
   };
 const BASE_URL = "https://api.themoviedb.org/3/movie";

@@ -37,7 +37,7 @@ const MovieSearch = () => {
           movies.length > 0 ? (
             <SearchResultsContainer>
               {movies.map((movie) => (
-                <CardMovieSearch img_source={movie.poster_path} title={movie.title} key={movie.id} release_date={movie.release_date} />
+                <CardMovieSearch img_source={movie.poster_path} title={movie.title} key={movie.id} release_date={movie.release_date} id={movie.id}/>
               ))}
             </SearchResultsContainer>
           ) : (

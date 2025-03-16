@@ -1,0 +1,12 @@
+.rating{
+
+    &.good{
+        color:green;
+    }
+    &.ok{
+        color:rgb(0, 89, 255);
+    }
+    &.bad{
+        color:red;
+    }
+}

@@ -1,12 +1,11 @@
 import style from './style.module.scss'
 import ButtonPrimary from '../button'
+import Logo from '../logo'
 
 function Header() {
   return (
     <div className={style.header}>
-        <div className={style.logo}>
-            Cinemaratona
-        </div>
+        <Logo />
         <nav>
             <ul>
                 <li>Home</li>

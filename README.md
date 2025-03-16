@@ -35,8 +35,10 @@ npm run dev
 ```bash
 touch .env
 ```
-6. Acesse o arquivo .env criado no passo acima e cole o valor da sua chave gerada no site do Movie Database da seguinte forma:
+6. Acesse o arquivo .env criado no passo acima e cole o valor da sua chave de API e Token de acesso gerada no site do Movie Database da seguinte forma:
 ```javascript
 VITE_API_KEY=insira_sua_chave_api_aqui
+VITE_API_ACCESS_TOKEN=insira_seu_token_de_acesso_aqui
+
 ```
 salve o arquivo e pode seguir com o desenvolvimento.

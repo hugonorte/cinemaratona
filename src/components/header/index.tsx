@@ -18,7 +18,11 @@ function Header() {
                     Filmes
                 </li>
                 <li>Social</li>
-                <li>FAQ</li>
+                <li>
+                    <Link to={`/discover`}>
+                        Discover
+                    </Link>
+                </li>
             </ul>
             <div className={style.buttons}>
                 <ButtonPrimary type="button" label="Login"/>

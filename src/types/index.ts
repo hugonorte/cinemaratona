@@ -28,6 +28,18 @@ export interface MoviePoster {
   }[],
 }
 
+export interface Genre {
+  id: number,
+  name: string
+}
+export interface StreamingProvider {
+  display_priorities: object,
+  display_priority: string,
+  logo_path: string,
+  provider_id: number,
+  provider_name: string
+}
+
 export interface MovieState {
     movies: Movie[];
     fetchMovies: (title: string) => Promise<void>;
@@ -39,6 +51,15 @@ export interface MovieDetailsState {
 export interface MoviePosterState {
     moviePoster: MoviePoster | null;
     fetchMoviePosters: (movie_id: number) => Promise<void>;
+}
+
+export interface GenreState {
+  genres: Genre[] | null;
+  fetchGenres: () => Promise<void>;
+}
+export interface StreamingProviderState {
+  streamingProviders: StreamingProvider[] | null;
+  fetchStreamingProviders: () => Promise<void>;
 }
 
   

@@ -1,4 +1,3 @@
-// src/store/useMovieStore.ts
 import { create } from "zustand";
 import { fetchMoviesFromAPI } from "../api/movieApi"; 
 import { MovieState } from "../types";

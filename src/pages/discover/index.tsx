@@ -2,7 +2,8 @@
 import { useEffect } from 'react';
 import { useGenresStore } from '../../store/useMovieGenres'
 import {useStreamingProvidersStore } from '../../store/useStreamingProviders'
-
+import BaseLayout from '../../components/layout';
+import style from './style.module.scss'
 
 export default function Discover() {
 
@@ -18,6 +19,8 @@ export default function Discover() {
         console.log(streamingProviders);
 
   return (
-    <div></div>
+    <BaseLayout>
+    <div className={style.container}></div>
+    </BaseLayout>
   )
 }

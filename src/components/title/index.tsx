@@ -8,7 +8,7 @@ interface MeuComponenteProps {
     customColor?: string;
 }
 
-function Title({ tag = 'div', children, color, customColor }: MeuComponenteProps) {
+function Title({ tag = 'div', children, color, customColor='#034C8C' }: MeuComponenteProps) {
     const Tag = tag as keyof JSX.IntrinsicElements;
 
     return (

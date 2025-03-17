@@ -1,0 +1,19 @@
+.container{
+    border:solid 4px orange;
+    .genres {
+        border:solid 1px red;
+
+        .genres_container{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: start;
+            gap: 1rem;
+            margin: 2rem;
+            border:solid 4px green;
+            padding: 1rem;
+        }
+        
+        
+    }
+}

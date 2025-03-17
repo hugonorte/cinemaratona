@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+  width: 90vw;
+  height:100vh;
+  background-color: #f4f8ffe0;
+  overflow: hidden;
+  margin: 1rem 2rem;
+  border-radius: 1rem;
+  padding: 2rem;
+}

@@ -1,5 +1,5 @@
 import style from './style.module.scss'
-import ButtonPrimary from '../button'
+import ButtonPrimary from '../button/primary'
 import Logo from '../logo'
 import { Link } from 'react-router'
 

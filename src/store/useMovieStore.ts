@@ -4,7 +4,8 @@ import { MovieState } from "../types";
 
 export const useMovieStore = create<MovieState>((set) => ({
   movies: [],
-  fetchMovies: async (title: string) => {
+  fetchMovies: async (title?: string) => {
+    if (!title) return;
     const movies = await fetchMoviesFromAPI(title);
     set({ movies });
   },

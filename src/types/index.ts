@@ -42,7 +42,7 @@ export interface StreamingProvider {
 
 export interface MovieState {
     movies: Movie[];
-    fetchMovies: (title: string) => Promise<void>;
+    fetchMovies: (title?: string, genre_id?:number, provider_id?:number) => Promise<void>;
 }
 export interface MovieDetailsState {
     movieDetails: Movie | null;

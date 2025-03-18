@@ -1,19 +1,26 @@
-.container{
-    border:solid 4px orange;
-    .genres {
-        border:solid 1px red;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 
-        .genres_container{
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: start;
-            gap: 1rem;
-            margin: 2rem;
-            border:solid 4px green;
-            padding: 1rem;
-        }
-        
-        
+  .genres {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .genres_container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: start;
+      gap: 1.8rem;
+      margin-bottom: 2rem;
     }
+  }
 }

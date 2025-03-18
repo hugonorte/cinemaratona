@@ -1,11 +1,3 @@
-/* https://api.themoviedb.org/3/discover/movie?api_key=YOUR_API_KEY
-  &language=pt-BR
-  &with_genres=28
-  &watch_region=BR
-  &with_watch_providers=8
-  &vote_average.gte=8
-  &sort_by=vote_average.desc */
-
 import { Movie } from "../types";
 const accessToken = import.meta.env.VITE_API_ACCESS_TOKEN;
 const apiKey = import.meta.env.VITE_API_KEY;

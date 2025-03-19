@@ -11,11 +11,10 @@
         background-color: colors.$blue;
         color: white;
     }
-}
-
-.selected { 
-    background-color: colors.$blue;
-    color: white;
-    border-color: colors.$dark-blue;
-    font-weight: bold;
+    &.selected { 
+        background-color: colors.$blue;
+        color: white;
+        border-color: colors.$dark-blue;
+        font-weight: bold;
+    }
 }

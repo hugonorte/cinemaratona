@@ -20,7 +20,6 @@ export default function Discover() {
   const [selectedGenreId, setSelectedGenreId] = useState<number | null>(null);
   const [selectedProviderId, setSelectedProviderId] = useState<number | null>(null);
 
-
   useEffect(() => {
     fetchGenres();
     fetchStreamingProviders();
@@ -28,6 +27,7 @@ export default function Discover() {
   }, [fetchGenres, fetchStreamingProviders]);
 
   useEffect(() => {
+    console.log(selectedGenreId, selectedProviderId);
     if (selectedGenreId !== null && selectedProviderId !== null) {
       fetchMovies("" ,selectedGenreId, selectedProviderId);
     }
@@ -36,8 +36,6 @@ export default function Discover() {
   const filteredStreamingProviders = streamingProviders?.filter(provider => 
     Object.values(StreamingProviders).includes(provider.provider_id)
   );
-
-  console.log(streamingProviders)
 
   return (
     <BaseLayout>
@@ -52,7 +50,7 @@ export default function Discover() {
             </Title>
             <div className={style.genres_container}>
               {genres?.map(genre => (
-                  <ButtonLight type="button" key={genre.id} onClick={() => setSelectedGenreId(genre.id)}  className={`${style.button} ${selectedGenreId === genre.id ? style.selected : ''}`}>
+                  <ButtonLight type="button" key={genre.id} onClick={() => {setSelectedGenreId(genre.id); console.log(selectedGenreId, genre.id)}}  className={`${style.button} ${selectedGenreId === genre.id ? style.selected : ''}`}>
                     {genre.name}
                   </ButtonLight>
               ))}

@@ -38,7 +38,7 @@ export default function Movie() {
                         </Title>
                         <div className={style.details}>
                             <div className={style.cover}>
-                                <img src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[2].file_path}`} alt={movieDetails.title} />
+                                <img src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}`} alt={movieDetails.title} />
                             </div>
                             <div className="description">
                                 <strong>Descrição:</strong> 

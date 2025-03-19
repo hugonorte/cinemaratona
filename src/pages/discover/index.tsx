@@ -5,6 +5,7 @@ import { useStreamingProvidersStore } from '../../store/useStreamingProviders'
 import { useMovieByGenreAndStreamingStore } from '../../store/useMovieByGenreAndStreamingStore'
 import BaseLayout from '../../components/layout';
 import style from './style.module.scss'
+import lightButtonStyle from '../../components/button/light/style.module.scss'
 import Title from '../../components/title';
 import Main from '../../components/containers/main';
 import ButtonLight from '../../components/button/light';
@@ -50,7 +51,7 @@ export default function Discover() {
             </Title>
             <div className={style.genres_container}>
               {genres?.map(genre => (
-                  <ButtonLight type="button" key={genre.id} onClick={() => {setSelectedGenreId(genre.id); console.log(selectedGenreId, genre.id)}}  className={`${style.button} ${selectedGenreId === genre.id ? style.selected : ''}`}>
+                  <ButtonLight type="button" key={genre.id} onClick={() => {setSelectedGenreId(genre.id); console.log(selectedGenreId, genre.id)}}  className={`${style.button} ${selectedGenreId === genre.id ? lightButtonStyle.selected : ''}`}>
                     {genre.name}
                   </ButtonLight>
               ))}
@@ -62,7 +63,7 @@ export default function Discover() {
             </Title>
             <div className={style.genres_container}>
               {filteredStreamingProviders?.map(provider => (
-                <ButtonLight type="button" key={provider.provider_id} onClick={() => setSelectedProviderId(provider.provider_id)} className={`${style.button} ${selectedProviderId === provider.provider_id ? style.selected : ''}`}>
+                <ButtonLight type="button" key={provider.provider_id} onClick={() => setSelectedProviderId(provider.provider_id)} className={`${style.button} ${selectedProviderId === provider.provider_id ? lightButtonStyle.selected : ''}`}>
                   {provider.provider_name}
                 </ButtonLight>
               ))}

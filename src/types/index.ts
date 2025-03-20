@@ -44,6 +44,14 @@ export interface MovieState {
     movies: Movie[];
     fetchMovies: (title?: string, genre_id?:number, provider_id?:number) => Promise<void>;
 }
+export interface TopRatedMovieState {
+    topRatedmovies: Movie[];
+    fetchTopRatedMovies: () => Promise<void>;
+}
+export interface PopularMovieState {
+    popularMovies: Movie[];
+    fetchPopularMovies: () => Promise<void>;
+}
 export interface MovieDetailsState {
     movieDetails: Movie | null;
     fetchMovieDetails: (movie_id: number) => Promise<void>;

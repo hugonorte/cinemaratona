@@ -10,12 +10,14 @@ function Header() {
         <nav>
             <ul>
                 <li>
-                    <Link to={`/home`}>
+                    <Link to={`/`}>
                         Home
                     </Link>
                 </li>
                 <li>
-                    Filmes
+                    <Link to={`/filmes`}>
+                        Filmes
+                    </Link>
                 </li>
                 <li>Social</li>
                 <li>

@@ -13,10 +13,10 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
     <Routes>
       {/* <Route path="/" element={<App />} /> */}
-      <Route path="/" element={<Homepage />} />
+      <Route path="/" element={<Home />} />
       <Route path="/teste" element={<Teste />} />
       <Route path="/movie/:id" element={<Movie />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="/filmes" element={<Homepage />} />
       <Route path="/discover" element={<Discover />} />
     </Routes>
     </BrowserRouter>

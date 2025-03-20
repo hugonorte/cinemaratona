@@ -5,14 +5,14 @@
         background-image: url('@assets/img/family.png');
         background-size: contain;
         background-repeat: no-repeat;
-        height: 800px;
+        height: 950px;
         font-family: "Jockey One", sans-serif;
         color:white;
         width: 100%;
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         display: flex;
-        justify-content: start;
-        align-items: center;
+        justify-content: end;
+        align-items: start;
         padding: 3rem;
         
         @media (min-width: 1569px){
@@ -20,7 +20,10 @@
         }
 
         .title{
-            width: 50%;
+            width: 40%;
+            padding-right: 8rem;
+            padding-top: 12rem;
+            font-size: 4rem;
         }
     }
 

@@ -22,7 +22,7 @@ export default function Home() {
         <div className={style.container}>
             <section className={style.header}>
                 <div className={style.title}>
-                  Encontre o seu próximo filme favorito em poucos cliques
+                  Encontre o seu próximo filme favorito em poucos cliques!
                 </div>
             </section>
             <section className={style.trends}>

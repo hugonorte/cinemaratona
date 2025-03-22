@@ -27,6 +27,11 @@ export default function Movie() {
         return <p>Carregando...</p>;
     }
 
+    const year = movieDetails.release_date.split("-")[0];
+    const month = movieDetails.release_date.split("-")[1];
+    const day = movieDetails.release_date.split("-")[2];
+    const rating = Math.round(movieDetails.vote_average * 10) / 10;
+
     return (
         <BaseLayout>
             <div className={style.container}>
@@ -34,7 +39,7 @@ export default function Movie() {
                 </div>
                     <SearchResultsContainer>
                         <Title tag="h1">
-                            {movieDetails.title}
+                            {movieDetails.title} ({year})
                         </Title>
                         <div className={style.details}>
                             <div className={style.cover}>
@@ -44,9 +49,9 @@ export default function Movie() {
                                 <strong>Descrição:</strong> 
                                 <p>{movieDetails.overview}</p>
                                 <strong>Data de Lançamento:</strong>
-                                <p> {movieDetails.release_date}</p>
+                                <p> {day}/{month}/{year}</p>
                                 <strong>Nota Média:</strong>
-                                <AverageRating rating={movieDetails.vote_average} />
+                                <AverageRating rating={rating} />
                             </div>
                         </div>
                     </SearchResultsContainer>

@@ -1,12 +1,37 @@
+$font-size: 1.5rem;
+$max-width: 5%;
+
+$good-color: #0b5e04;
+$ok-color: #034e8b;
+$bad-color: #640303;
+
 .rating{
+    font-family: 'Sigmar', sans-serif;
+    max-width: $max-width;
+    margin: 0.888rem 0;
+    text-align: center;
+    padding: 0.444rem ;
+    border-radius: 5px;
+    border-width: 0.3rem;
+    border-style: solid;
+    font-size: $font-size;
+    transition: font-size 0.3s ease-in-out, max-width 0.3s ease-in-out;
+    color:#FFFFFF;
 
     &.good{
-        color:green;
+        border: solid 1px $good-color;
+        background-color:$good-color;
     }
     &.ok{
-        color:rgb(0, 89, 255);
+        background-color:$ok-color;
     }
     &.bad{
-        color:red;
+        border-color: $bad-color;
+        background-color:$bad-color;
+    }
+
+    &:hover{
+        font-size: calc($font-size + 0.5rem);
+        max-width: calc($max-width + 1%);
     }
 }

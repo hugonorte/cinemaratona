@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    height: 100vh;
+}
+
+.container form {
+    position: relative;
+    bottom: 100px;
+    border-radius: 7px;
+    min-width: 30vw;
+    padding: 10px;
+    box-shadow: 2px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+
+
+}
+
+.container h1 {
+    text-align: center;
+    color: #fff;
+    justify-content: center;
+}
+
+.container .inputField {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px auto;
+
+}
+
+.inputField input {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    outline: none;
+    border: 2px solid #4cb0c2;
+    padding-left: 5px;
+    border-radius: 10px;
+}
+
+.container .recallForget {
+   font-size: 14.5px;
+   display: flex;
+   justify-content: space-between;
+   margin: -15px 0 15px;
+}
+
+.recallForget input[type="checkbox"] {
+    position: relative;
+    margin-right: 4px;
+    top: 2px;
+    
+  }
+
+.recallForget label {
+    color: #fff;
+}
+
+.recallForget input {
+    margin-left: 2px;
+}
+
+.recallForget a, .signup a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.recallForget a:hover,
+.signup a:hover {
+    text-decoration: underline;
+}
+
+.container button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.container .signup {
+    text-align: center;
+    font-size: 15px;
+    margin: 20px 0 10px;
+}

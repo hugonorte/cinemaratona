@@ -1,6 +1,6 @@
 export interface Movie {
   id: number,
-  genre_ids: number[],
+  genres: Genre[],
   title: string,
   overview: string,
   release_date: string,
@@ -10,8 +10,25 @@ export interface Movie {
   popularity: number,
   original_language: string,
   original_title: string,
-  video: boolean
+  video: boolean,
+  origin_country: string[],
 }
+
+export interface Cast {
+  adult: boolean,
+  gender: number,
+  id: number,
+  known_for_department: string,
+  name: string,
+  original_name: string,
+  popularity: 8,
+  profile_path: string,
+  cast_id: 5,
+  character: string,
+  credit_id: string,
+  order: number
+}
+
 
 export interface MoviePoster {
   backdrops: string[],
@@ -68,6 +85,11 @@ export interface GenreState {
 export interface StreamingProviderState {
   streamingProviders: StreamingProvider[] | null;
   fetchStreamingProviders: () => Promise<void>;
+}
+
+export interface CastState {
+  cast: Cast[] | null;
+  fetchCast: (movie_id: number) => Promise<void>;
 }
 
   

@@ -8,6 +8,7 @@ import BaseLayout from "../../components/layout";
 import Title from "../../components/title";
 import SearchResultsContainer from "../../components/search/search_results";
 import AverageRating from "../../components/avg_rating";
+import imageNotFound from '@assets/img/movie_not_found.svg'
 
 export default function Movie() {
     const { id } = useParams<{ id: string }>();
@@ -34,8 +35,10 @@ export default function Movie() {
     const month = movieDetails.release_date.split("-")[1];
     const day = movieDetails.release_date.split("-")[2];
     const rating = Math.round(movieDetails.vote_average * 10) / 10;
-    const director = cast;
-    console.log(director)
+    //TODO :Adicionar o diretor
+    //const director = crew;
+    console.log(movieDetails)
+   
     return (
         <BaseLayout>
             <div className={style.container}>
@@ -47,7 +50,7 @@ export default function Movie() {
                     </Title>
                     <div className={style.details}>
                         <div className={style.cover}>
-                            <img src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}`} alt={movieDetails.title} />
+                            <img src={moviePoster.posters.length > 0 ? `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}` : `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetails.poster_path}`} alt={movieDetails.title} />
                         </div>
                         <div className={style.description}>
                             <strong>Nota Média:</strong>
@@ -61,7 +64,7 @@ export default function Movie() {
                             <strong>Gênero:</strong>
                             <p>{movieDetails.genres.map(x => x.name).join(", ")}</p>
                             <strong>Descrição:</strong>
-                            <p>{movieDetails.overview}</p>
+                            <p>{movieDetails.overview.length===0?"Nenhuma descrição até o momento":movieDetails.overview}</p>
                             <strong>Data de Lançamento:</strong>
                             <p> {day}/{month}/{year}</p>
                         </div>

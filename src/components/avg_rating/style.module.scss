@@ -12,21 +12,17 @@ $bad-color: #640303;
     text-align: center;
     padding: 0.444rem ;
     border-radius: 5px;
-    border-width: 0.3rem;
-    border-style: solid;
     font-size: $font-size;
     transition: font-size 0.3s ease-in-out, max-width 0.3s ease-in-out;
     color:#FFFFFF;
 
     &.good{
-        border: solid 1px $good-color;
         background-color:$good-color;
     }
     &.ok{
         background-color:$ok-color;
     }
     &.bad{
-        border-color: $bad-color;
         background-color:$bad-color;
     }
 

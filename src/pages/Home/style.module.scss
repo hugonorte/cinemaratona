@@ -1,31 +1,130 @@
 .container{
     width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
 
-    .header {
+    .header{
         background-image: url('@assets/img/family.png');
         background-size: contain;
         background-repeat: no-repeat;
-        height: 950px;
-        font-family: "Jockey One", sans-serif;
-        color:white;
         width: 100%;
-        font-size: 2.8rem;
         display: flex;
-        justify-content: end;
-        align-items: start;
-        padding: 3rem;
-        
-        @media (min-width: 1569px){
-            background-size: cover;
-        }
+        align-items: center;
 
         .title{
-            width: 40%;
-            padding-right: 8rem;
-            padding-top: 12rem;
-            font-size: 4rem;
+            display: flex;
+            flex-direction: column;
+            font-family: "Jockey One", sans-serif;
+            color:white;
+            gap: 1.444rem;
         }
     }
+
+    @media (max-width: 375px){
+        .header {
+            .title{
+                width: 100%;
+                font-size: 1.4rem;
+                margin:0 0.3rem;
+                padding-top: 12rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    }
+
+    @media (min-width: 376px) and (max-width: 663px){
+        .header {
+            .title{
+                width: 100%;
+                font-size: 1.8rem;
+                margin:0 0.3rem 0;
+                padding-top: 22rem;
+                padding-left: 2rem;
+            }
+        }
+    }
+
+    @media (min-width: 664px) {
+        .header {
+            justify-content: end;
+            align-items: center;
+            min-height: 60vh;
+            background-size: cover;
+
+            .title{
+                padding-top: 0rem;
+                padding-right: 3rem;
+                font-size: clamp(2rem, 2vw, 4rem);
+            }
+        }
+    }
+
+    @media (min-width: 830px) {
+        .header {
+            min-height: 80vh;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .header {
+            min-height: calc(100vh + 10rem);
+            align-items: start;
+
+            .title{
+                margin-top: 12rem;
+                width: 40%;
+                padding-right: 8rem;
+                padding-top: 0rem;
+                font-size: 4rem;
+            }
+            button {
+                font-size: 1.4rem;
+                margin-top: 2rem;
+                max-width: 50%;
+            }
+        }
+    }
+
+    @media (min-width: 664px) and (max-width: 1024px){
+            .title{
+                width: 50%;
+                font-size: 2.3rem;
+                margin:0 0.3rem;
+                padding-top: 0rem;
+                padding-left: 2rem;
+            }
+        }
+    }
+
+    // .header {
+    //     background-image: url('@assets/img/family.png');
+    //     background-size: contain;
+    //     background-repeat: no-repeat;
+    //     height: 950px;
+    //     font-family: "Jockey One", sans-serif;
+    //     color:white;
+    //     width: 100%;
+    //     font-size: 2.8rem;
+    //     display: flex;
+    //     justify-content: end;
+    //     align-items: start;
+        
+        
+    //     @media (min-width: 1569px){
+    //         background-size: cover;
+    //     }
+        
+    //     .title{
+    //         width: 40%;
+    //         padding-right: 8rem;
+    //         padding-top: 12rem;
+    //         font-size: 4rem;
+    //     }
+        
+    //}
 
     .trends, .top_rated {
         padding: 3rem;
@@ -36,4 +135,3 @@
             color: white;
         }
     }
-}

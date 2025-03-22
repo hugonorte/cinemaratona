@@ -6,6 +6,7 @@ import { useTopRatedMovieStore } from '../../store/useTopRatedMovieStore'
 import SearchResultsContainer from '../../components/search/search_results';
 import { useEffect } from 'react';
 import CardMovieSearch from '../../components/card/movie/search';
+import ButtonPrimary from '../../components/button/primary'
 
 export default function Home() {
 
@@ -23,6 +24,7 @@ export default function Home() {
             <section className={style.header}>
                 <div className={style.title}>
                   Encontre o seu próximo filme favorito em poucos cliques!
+                  <ButtonPrimary label='Cadastre-se' type='button' />
                 </div>
             </section>
             <section className={style.trends}>

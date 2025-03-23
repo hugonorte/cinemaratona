@@ -13,8 +13,12 @@ export interface Movie {
   video: boolean,
   origin_country: string[],
 }
-
-export interface Cast {
+export interface Staff {
+  id: number,
+  cast: Actor[],
+  crew: Crew[]
+}
+export interface Actor {
   adult: boolean,
   gender: number,
   id: number,
@@ -27,6 +31,23 @@ export interface Cast {
   character: string,
   credit_id: string,
   order: number
+}
+
+export interface Crew {
+  adult: boolean,
+  gender: number,
+  id: number,
+  known_for_department: string,
+  name: string,
+  original_name: string,
+  popularity: 8,
+  profile_path: string,
+  cast_id: 5,
+  character: string,
+  credit_id: string,
+  order: number
+  department: string
+  job: string
 }
 
 
@@ -88,7 +109,7 @@ export interface StreamingProviderState {
 }
 
 export interface CastState {
-  cast: Cast[] | null;
+  staff: Staff | null;
   fetchCast: (movie_id: number) => Promise<void>;
 }
 

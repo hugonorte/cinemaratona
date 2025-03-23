@@ -8,13 +8,12 @@ import BaseLayout from "../../components/layout";
 import Title from "../../components/title";
 import SearchResultsContainer from "../../components/search/search_results";
 import AverageRating from "../../components/avg_rating";
-import imageNotFound from '@assets/img/movie_not_found.svg'
 
 export default function Movie() {
     const { id } = useParams<{ id: string }>();
     const { movieDetails, fetchMovieDetails } = useMovieDetailsStore();
     const { moviePoster, fetchMoviePosters } = useMoviePostersStore();
-    const { cast, fetchCast } = useCastStore();
+    const { staff, fetchCast } = useCastStore();
 
     useEffect(() => {
         if (id) {
@@ -35,9 +34,7 @@ export default function Movie() {
     const month = movieDetails.release_date.split("-")[1];
     const day = movieDetails.release_date.split("-")[2];
     const rating = Math.round(movieDetails.vote_average * 10) / 10;
-    //TODO :Adicionar o diretor
-    //const director = crew;
-    console.log(movieDetails)
+    const director = staff?.crew.filter(x => x.job === "Director")[0].name;
    
     return (
         <BaseLayout>
@@ -60,7 +57,7 @@ export default function Movie() {
                             <strong>Título Original:</strong>
                             <p>{movieDetails.original_title}</p>
                             <strong>Diretor:</strong>
-                            <p></p>
+                            <p>{director}</p>
                             <strong>Gênero:</strong>
                             <p>{movieDetails.genres.map(x => x.name).join(", ")}</p>
                             <strong>Descrição:</strong>
@@ -70,7 +67,7 @@ export default function Movie() {
                         </div>
                         <div className={style.cast}>
                             <strong>Elenco:</strong>
-                            {cast?.map((actor) => (
+                            {staff?.cast?.map((actor) => (
                                actor.known_for_department === "Acting" ?
                                 (
                                     <div key={actor.cast_id} className={style.actor}>

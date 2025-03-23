@@ -3,9 +3,9 @@ import { fetchCastFromAPI } from "../api/cast";
 import { CastState } from "../types";
 
 export const useCastStore = create<CastState>((set) => ({
-  cast: null,
+  staff: null,
   fetchCast: async (movie_id: number) => {
-    const cast = await fetchCastFromAPI(movie_id);
-    set({ cast });
+    const staff = await fetchCastFromAPI(movie_id);
+    set({ staff });
   },
 }));

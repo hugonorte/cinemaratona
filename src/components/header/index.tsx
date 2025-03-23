@@ -6,7 +6,9 @@ import { Link } from 'react-router'
 function Header() {
   return (
     <div className={style.header}>
-        <Logo />
+        <Link to={`/`}>
+            <Logo />
+        </Link>
         <nav>
             <ul>
                 <li>

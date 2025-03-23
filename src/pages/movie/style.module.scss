@@ -12,6 +12,20 @@
   h1{
     color: colors.$blue_dark5;
   }
+  .providers {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: fit-content;
+    gap: 1rem;
+    margin: 1rem 0;
+    img {
+      width: 3rem;
+      height: auto;
+    }
+  }
 
   .details { 
     color: colors.$blue_dark5;

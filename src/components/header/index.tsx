@@ -19,7 +19,11 @@ function Header() {
                         Filmes
                     </Link>
                 </li>
-                <li>Social</li>
+                <li>
+                    <Link to={`/social`}>
+                        Social
+                    </Link>
+                </li>
                 <li>
                     <Link to={`/discover`}>
                         Discover

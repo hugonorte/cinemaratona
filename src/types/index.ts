@@ -13,6 +13,13 @@ export interface Movie {
   video: boolean,
   origin_country: string[],
 }
+
+export interface Provider {
+  display_priority: number,
+  logo_path: string,
+  provider_id: number,
+  provider_name: string
+}
 export interface Staff {
   id: number,
   cast: Actor[],
@@ -66,6 +73,20 @@ export interface MoviePoster {
   }[],
 }
 
+export interface BrProvider {
+  link: string,
+  rent: Provider[],
+  flatrate: Provider[],
+  buy: Provider[]
+}
+
+export interface Flatrate {
+  display_priority: number,
+  logo_path: string,
+  provider_id: number,
+  provider_name: string
+}
+
 export interface Genre {
   id: number,
   name: string
@@ -111,6 +132,11 @@ export interface StreamingProviderState {
 export interface CastState {
   staff: Staff | null;
   fetchCast: (movie_id: number) => Promise<void>;
+}
+
+export interface brProviderState {
+  brProvider: BrProvider | null;
+  fetchBrProvider: (movie_id: number) => Promise<void>;
 }
 
   

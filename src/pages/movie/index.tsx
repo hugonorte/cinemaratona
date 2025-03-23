@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { useMovieDetailsStore } from "../../store/useMovieDetailsStore";
 import { useMoviePostersStore } from "../../store/useMoviePostersStore";
 import { useCastStore } from "../../store/useCastStore";
+import { useBrProviderStore } from "../../store/useBrProvidersStore";
 import BaseLayout from "../../components/layout";
 import Title from "../../components/title";
 import SearchResultsContainer from "../../components/search/search_results";
@@ -14,14 +15,16 @@ export default function Movie() {
     const { movieDetails, fetchMovieDetails } = useMovieDetailsStore();
     const { moviePoster, fetchMoviePosters } = useMoviePostersStore();
     const { staff, fetchCast } = useCastStore();
+    const { brProvider, fetchBrProvider } = useBrProviderStore();
 
     useEffect(() => {
         if (id) {
             fetchMovieDetails(Number(id));
             fetchMoviePosters(Number(id));
             fetchCast(Number(id));
+            fetchBrProvider(Number(id));
         }
-    }, [id, fetchMovieDetails, fetchMoviePosters, fetchCast]);
+    }, [id, fetchMovieDetails, fetchMoviePosters, fetchCast, fetchBrProvider]);
 
     if (!movieDetails) {
         return <p>Carregando...</p>;
@@ -35,7 +38,7 @@ export default function Movie() {
     const day = movieDetails.release_date.split("-")[2];
     const rating = Math.round(movieDetails.vote_average * 10) / 10;
     const director = staff?.crew.filter(x => x.job === "Director")[0].name;
-   
+   console.log(brProvider?.flatrate[0].provider_name);
     return (
         <BaseLayout>
             <div className={style.container}>
@@ -52,6 +55,23 @@ export default function Movie() {
                         <div className={style.description}>
                             <strong>Nota Média:</strong>
                             <AverageRating rating={rating} />
+                            {
+                                (brProvider?.flatrate?.length ?? 0) > 0 ?
+                                (
+                                    <>
+                                        <strong>Disponível em:</strong>
+                                        <div className={style.providers}>
+                                        {
+                                            brProvider?.flatrate?.map(
+                                                provider => (
+                                                    <img src={`https://image.tmdb.org/t/p/w45/${provider.logo_path}`} alt={provider.provider_name} key={provider.provider_id}/>
+                                                )
+                                            )
+                                        }
+                                        </div>
+                                    </>
+                                ) : ""
+                            }
                             <strong>País:</strong>
                             <p>{movieDetails.origin_country.map(x => x)}</p>
                             <strong>Título Original:</strong>

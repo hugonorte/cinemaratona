@@ -8,7 +8,7 @@ interface BaseLayoutProps {
 
 function BaseLayout({ children }: BaseLayoutProps) {
   return (
-    <div>
+    <div className={style.header_container}>
         <Header />
         <div className={style.container}>
           {children}

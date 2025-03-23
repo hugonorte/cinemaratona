@@ -41,7 +41,7 @@ const MovieSearch = () => {
               ))}
             </SearchResultsContainer>
           ) : (
-            <p>Nenhum filme encontrado</p>
+            ""
           )
         }
       </div>

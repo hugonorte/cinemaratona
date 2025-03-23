@@ -29,10 +29,10 @@ a {
     text-decoration: none;
     color: white;
 
-    &:link, &:hover {
+    &:hover {
         color: skyblue;
     }
-    &:visited {
+    &:visited,  &:link {
         color: white;
     }
 }

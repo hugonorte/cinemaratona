@@ -7,21 +7,40 @@
   justify-content: center;
   margin-top: 20px;
   padding: 1rem 3rem;
+  width: 100%;
 
   h1{
     color: colors.$blue_dark5;
+  }
+  .providers {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: fit-content;
+    gap: 1rem;
+    margin: 1rem 0;
+    img {
+      width: 3rem;
+      height: auto;
+    }
   }
 
   .details { 
     color: colors.$blue_dark5;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
 
     .cover {
-      max-width: 40%;
-      min-width: 40%;
-      width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       height: auto;
       img {
         min-width: 20rem;
@@ -29,9 +48,37 @@
       }
     }
     .description {
-      max-width: 60%;
-      min-width: 60%;
       height: auto;
+      justify-content: space-around;
+      flex-grow: 1;
+      max-width: 50%;
+      strong {
+        font-size: 1.4rem;
+        color: colors.$blue_dark1;
+      }
+      p {
+        font-size: 1.1rem;
+      }
+    }
+    .cast{
+      display: flex;
+      flex-direction: column;
+      max-width: 20%;
+      gap:1rem;
+      h2 {
+        color: colors.$blue_dark1;
+      }
+      .actor {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        img {
+          width: 5rem;
+          height: auto;
+        }
+        
+      }
     }
   }
 }

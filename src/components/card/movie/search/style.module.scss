@@ -1,13 +1,26 @@
+@use "../../../../styles/color" as colors;
+
+$max-height: 200px;
 img {
     max-width: auto;
-    max-height: 200px;
+    max-height: $max-height;
+    transition: width, 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
-h4 {
-    font-size: 1rem;
-    margin: 0;
+img:hover {
+    max-height: calc(#{$max-height} + 10px);
 }
+
 .container {
+    h4 {
+        font-size: 1rem;
+        margin: 0;
+        color:colors.$blue;
+    
+        &:hover {
+            color: colors.$blue_light4;
+        }
+    }
     max-width: 133px;
     word-wrap: break-word; /* Garante que palavras longas sejam quebradas */
     overflow-wrap: break-word; /* Funciona como alternativa ao word-wrap */

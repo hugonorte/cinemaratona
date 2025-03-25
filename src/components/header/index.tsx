@@ -1,18 +1,36 @@
 import style from './style.module.scss'
-import ButtonPrimary from '../button'
+import ButtonPrimary from '../button/primary'
+import Logo from '../logo'
+import { Link } from 'react-router'
 
 function Header() {
   return (
     <div className={style.header}>
-        <div className={style.logo}>
-            Cinemaratona
-        </div>
+        <Link to={`/`}>
+            <Logo />
+        </Link>
         <nav>
             <ul>
-                <li>Home</li>
-                <li>Filmes</li>
-                <li>Social</li>
-                <li>FAQ</li>
+                <li>
+                    <Link to={`/`}>
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link to={`/filmes`}>
+                        Filmes
+                    </Link>
+                </li>
+                <li>
+                    <Link to={`/social`}>
+                        Social
+                    </Link>
+                </li>
+                <li>
+                    <Link to={`/discover`}>
+                        Discover
+                    </Link>
+                </li>
             </ul>
             <div className={style.buttons}>
                 <ButtonPrimary type="button" label="Login"/>

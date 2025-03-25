@@ -18,11 +18,11 @@ function CardMovieSearch({ img_source, title, release_date, id }: CardMovieSearc
         <img src={image} alt="Imagem do filme" />
       </Link>
       <Link to={`/movie/${id}`}>
-        <Title tag="h4" customColor="#0c2b3c">
+        <Title tag="h4">
           {title}
         </Title>
       </Link>
-        <p>{release_date}</p>
+        <p>{release_date.slice(0,4)}</p>
     </div>
   )
 }

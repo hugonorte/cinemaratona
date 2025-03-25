@@ -1,4 +1,11 @@
-.container {
-
-
+.header_container {
+    width: 100%;
+    
+    .container {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        overflow-x: hidden;
+        width: 100%;
+    }
 }

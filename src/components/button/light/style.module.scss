@@ -1,0 +1,20 @@
+@use "../../../styles/color" as colors;
+
+.button {
+    background-color: aliceblue;
+    border: solid 1px colors.$blue;
+    color: colors.$blue;
+    border-radius: 5px;
+    padding: 1rem;
+
+    &:hover {
+        background-color: colors.$blue;
+        color: white;
+    }
+    &.selected { 
+        background-color: colors.$blue;
+        color: white;
+        border-color: colors.$dark-blue;
+        font-weight: bold;
+    }
+}

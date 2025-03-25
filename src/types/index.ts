@@ -1,6 +1,6 @@
 export interface Movie {
   id: number,
-  genre_ids: number[],
+  genres: Genre[],
   title: string,
   overview: string,
   release_date: string,
@@ -10,8 +10,53 @@ export interface Movie {
   popularity: number,
   original_language: string,
   original_title: string,
-  video: boolean
+  video: boolean,
+  origin_country: string[],
 }
+
+export interface Provider {
+  display_priority: number,
+  logo_path: string,
+  provider_id: number,
+  provider_name: string
+}
+export interface Staff {
+  id: number,
+  cast: Actor[],
+  crew: Crew[]
+}
+export interface Actor {
+  adult: boolean,
+  gender: number,
+  id: number,
+  known_for_department: string,
+  name: string,
+  original_name: string,
+  popularity: 8,
+  profile_path: string,
+  cast_id: 5,
+  character: string,
+  credit_id: string,
+  order: number
+}
+
+export interface Crew {
+  adult: boolean,
+  gender: number,
+  id: number,
+  known_for_department: string,
+  name: string,
+  original_name: string,
+  popularity: 8,
+  profile_path: string,
+  cast_id: 5,
+  character: string,
+  credit_id: string,
+  order: number
+  department: string
+  job: string
+}
+
 
 export interface MoviePoster {
   backdrops: string[],
@@ -28,9 +73,43 @@ export interface MoviePoster {
   }[],
 }
 
+export interface BrProvider {
+  link: string,
+  rent: Provider[],
+  flatrate: Provider[],
+  buy: Provider[]
+}
+
+export interface Flatrate {
+  display_priority: number,
+  logo_path: string,
+  provider_id: number,
+  provider_name: string
+}
+
+export interface Genre {
+  id: number,
+  name: string
+}
+export interface StreamingProvider {
+  display_priorities: object,
+  display_priority: string,
+  logo_path: string,
+  provider_id: number,
+  provider_name: string
+}
+
 export interface MovieState {
     movies: Movie[];
-    fetchMovies: (title: string) => Promise<void>;
+    fetchMovies: (title?: string, genre_id?:number, provider_id?:number) => Promise<void>;
+}
+export interface TopRatedMovieState {
+    topRatedmovies: Movie[];
+    fetchTopRatedMovies: () => Promise<void>;
+}
+export interface PopularMovieState {
+    popularMovies: Movie[];
+    fetchPopularMovies: () => Promise<void>;
 }
 export interface MovieDetailsState {
     movieDetails: Movie | null;
@@ -39,6 +118,25 @@ export interface MovieDetailsState {
 export interface MoviePosterState {
     moviePoster: MoviePoster | null;
     fetchMoviePosters: (movie_id: number) => Promise<void>;
+}
+
+export interface GenreState {
+  genres: Genre[] | null;
+  fetchGenres: () => Promise<void>;
+}
+export interface StreamingProviderState {
+  streamingProviders: StreamingProvider[] | null;
+  fetchStreamingProviders: () => Promise<void>;
+}
+
+export interface CastState {
+  staff: Staff | null;
+  fetchCast: (movie_id: number) => Promise<void>;
+}
+
+export interface brProviderState {
+  brProvider: BrProvider | null;
+  fetchBrProvider: (movie_id: number) => Promise<void>;
 }
 
   

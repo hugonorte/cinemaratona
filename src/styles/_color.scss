@@ -1,22 +1,12 @@
 @use "sass:color";
 
-$red:#FF0000;
+/* MAIN PALETTES */
 $white:#FFFFFF;
-$blue:#0066ff;
-
-$button-border: #4cb0c2;
-
-$background-blue-button: rgb(58, 87, 180);
-$background-blue-button-moz: -moz-linear-gradient(90deg, rgba(58, 87, 180, 1) 0%, rgba(29, 135, 253, 1) 50%, rgba(69, 82, 252, 1) 100%);
-$background-blue-button-webkit: -webkit-linear-gradient(90deg, rgba(58, 87, 180, 1) 0%, rgba(29, 135, 253, 1) 50%, rgba(69, 82, 252, 1) 100%);
-$background-blue-button-linear: linear-gradient(90deg, rgba(58, 87, 180, 1) 0%, rgba(29, 135, 253, 1) 50%, rgba(69, 82, 252, 1) 100%);
-$background-blue-button-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3a57b4", endColorstr="#4552fc", GradientType=1);
-
-$background-blue-button-hover: rgb(58, 71, 180);
-$background-blue-button-hover-moz: -moz-linear-gradient(90deg, rgba(58, 71, 180, 1) 0%, rgba(25, 126, 240, 1) 50%, rgba(54, 67, 240, 1) 100%);
-$background-blue-button-hover-webkit: -webkit-linear-gradient(90deg, rgba(58, 71, 180, 1) 0%, rgba(25, 126, 240, 1) 50%, rgba(54, 67, 240, 1) 100%);
-$background-blue-button-hover-linear: linear-gradient(90deg, rgba(58, 71, 180, 1) 0%, rgba(25, 126, 240, 1) 50%, rgba(54, 67, 240, 1) 100%);
-$background-blue-button-hover-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3a47b4", endColorstr="#3643f0", GradientType=1);
+$dark-blue:#010626;
+$medium-blue:#022859;
+$blue:#034C8C;
+$light-blue:#2481A6;
+$yellow:#FFCC00;
 
 /*Blue color in Darker variations*/
 $blue_dark1:color.scale($blue, $lightness: -10%, $space: oklch);
@@ -41,3 +31,20 @@ $blue_light7:color.scale($blue, $lightness: 70%, $space: oklch);
 $blue_light8:color.scale($blue, $lightness: 80%, $space: oklch);
 $blue_light9:color.scale($blue, $lightness: 90%, $space: oklch);
 $blue_light10:color.scale($blue, $lightness: 100%, $space: oklch);
+
+
+/* BUTTONS COLORS */
+$button-border: $light-blue;
+
+$background-blue-button: rgb(58, 87, 180);
+$background-blue-button-moz: -moz-linear-gradient(90deg, rgba(58, 87, 180, 1) 0%, rgba(29, 135, 253, 1) 50%, rgba(69, 82, 252, 1) 100%);
+$background-blue-button-webkit: -webkit-linear-gradient(90deg, rgba(58, 87, 180, 1) 0%, rgba(29, 135, 253, 1) 50%, rgba(69, 82, 252, 1) 100%);
+$background-blue-button-linear: linear-gradient(90deg, rgba(58, 87, 180, 1) 0%, rgba(29, 135, 253, 1) 50%, rgba(69, 82, 252, 1) 100%);
+$background-blue-button-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3a57b4", endColorstr="#4552fc", GradientType=1);
+
+$background-blue-button-hover: rgb(58, 71, 180);
+$background-blue-button-hover-moz: -moz-linear-gradient(90deg, rgba(58, 71, 180, 1) 0%, rgba(25, 126, 240, 1) 50%, rgba(54, 67, 240, 1) 100%);
+$background-blue-button-hover-webkit: -webkit-linear-gradient(90deg, rgba(58, 71, 180, 1) 0%, rgba(25, 126, 240, 1) 50%, rgba(54, 67, 240, 1) 100%);
+$background-blue-button-hover-linear: linear-gradient(90deg, rgba(58, 71, 180, 1) 0%, rgba(25, 126, 240, 1) 50%, rgba(54, 67, 240, 1) 100%);
+$background-blue-button-hover-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3a47b4", endColorstr="#3643f0", GradientType=1);
+

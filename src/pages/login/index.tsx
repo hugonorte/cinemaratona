@@ -74,7 +74,7 @@ const Login = () => {
           <ButtonPrimary className={styleDoComponente.button} type="submit" label="Entrar" />
 
           <div className={style.signup}>
-            <a href="#">Criar uma conta</a>
+            <a href="/signup">Criar uma conta</a>
           </div>
         </form>
       </div>

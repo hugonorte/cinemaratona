@@ -38,7 +38,7 @@ export default function Movie() {
     const day = movieDetails.release_date.split("-")[2];
     const rating = Math.round(movieDetails.vote_average * 10) / 10;
     const director = staff?.crew.filter(x => x.job === "Director")[0].name;
-   console.log(brProvider?.flatrate[0].provider_name);
+    
     return (
         <BaseLayout>
             <div className={style.container}>

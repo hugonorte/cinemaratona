@@ -11,6 +11,9 @@ import SearchResultsContainer from "../../components/search/search_results";
 import AverageRating from "../../components/avg_rating";
 import ButtonLight from "../../components/button/light";
 import avatarNotFound from "../../assets/img/avatar_not_found.svg";
+import WatchedBtn from "../../components/button/watched";
+import AddToListBtn from "../../components/button/addToList";
+import RecommendBtn from "../../components/button/recommend";
 
 export default function Movie() {
     const { id } = useParams<{ id: string }>();
@@ -53,7 +56,9 @@ export default function Movie() {
                     <div className={style.details}>
                         <div className={style.cover}>
                             <img src={moviePoster.posters.length > 0 ? `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}` : `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetails.poster_path}`} alt={movieDetails.title} />
-                        <ButtonLight label="Adicionar à minha lista" type={undefined} />
+                            <AddToListBtn />
+                            <WatchedBtn />
+                            <RecommendBtn />
                         </div>
                         <div className={style.description}>
                             <strong>Nota Média:</strong>

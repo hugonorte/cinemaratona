@@ -12,7 +12,7 @@ const BASE_URL = "https://api.themoviedb.org/3/discover/movie";
 
 export const fetchMoviesByGenreAndStreamingFromAPI = async (genre_id: number, provider_id:number): Promise<Movie[]> => {
   try {
-    const response = await fetch(`${BASE_URL}?api_key=${apiKey}&language=pt-BR&&with_genres=${genre_id}&watch_region=BR&with_watch_providers=${provider_id}&vote_average.gte=8&sort_by=vote_average.desc`, options);
+    const response = await fetch(`${BASE_URL}?api_key=${apiKey}&language=pt-BR&with_genres=${genre_id}&watch_region=BR&with_watch_providers=${provider_id}&vote_average.gte=8&vote_count.gte=250&sort_by=vote_average.desc`, options);
     const data = await response.json();
 
     return data.results || [];

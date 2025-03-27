@@ -9,6 +9,8 @@ import BaseLayout from "../../components/layout";
 import Title from "../../components/title";
 import SearchResultsContainer from "../../components/search/search_results";
 import AverageRating from "../../components/avg_rating";
+import ButtonLight from "../../components/button/light";
+import avatarNotFound from "../../assets/img/avatar_not_found.svg";
 
 export default function Movie() {
     const { id } = useParams<{ id: string }>();
@@ -37,7 +39,7 @@ export default function Movie() {
     const month = movieDetails.release_date.split("-")[1];
     const day = movieDetails.release_date.split("-")[2];
     const rating = Math.round(movieDetails.vote_average * 10) / 10;
-    const director = staff?.crew.filter(x => x.job === "Director")[0].name;
+    const director = staff?.crew && staff.crew.filter(x => x.job === "Director")[0]?.name || 'Diretor não encontrado';
     
     return (
         <BaseLayout>
@@ -51,6 +53,7 @@ export default function Movie() {
                     <div className={style.details}>
                         <div className={style.cover}>
                             <img src={moviePoster.posters.length > 0 ? `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}` : `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetails.poster_path}`} alt={movieDetails.title} />
+                        <ButtonLight label="Adicionar à minha lista" type={undefined} />
                         </div>
                         <div className={style.description}>
                             <strong>Nota Média:</strong>
@@ -91,7 +94,11 @@ export default function Movie() {
                                actor.known_for_department === "Acting" ?
                                 (
                                     <div key={actor.cast_id} className={style.actor}>
-                                        <img src={`https://image.tmdb.org/t/p/w45/${actor.profile_path}`} alt={actor.name} />
+                                        <img src={
+                                            actor.profile_path === null ? 
+                                            avatarNotFound : 
+                                            `https://image.tmdb.org/t/p/w45/${actor.profile_path}`
+                                            } alt={actor.name} />
                                         <div className={style.actor_info}>
                                             <strong>{actor.name}</strong>
                                             <p>

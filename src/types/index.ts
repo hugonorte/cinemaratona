@@ -22,8 +22,8 @@ export interface Provider {
 }
 export interface Staff {
   id: number,
-  cast: Actor[],
-  crew: Crew[]
+  cast: Actor[] | null,
+  crew: Crew[] | null
 }
 export interface Actor {
   adult: boolean,

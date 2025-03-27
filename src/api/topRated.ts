@@ -7,11 +7,11 @@ const options = {
       Authorization: `Bearer ${accessToken}`
     }
   };
-const BASE_URL = "https://api.themoviedb.org/3/movie/top_rated?language=pt-br&page=1&region=BR";
+const BASE_URL = "https://api.themoviedb.org/3/movie/top_rated";
 
 export const fetchTopRatedMoviesFromAPI = async (): Promise<Movie[]> => {
   try {
-    const response = await fetch(`${BASE_URL}?language=pt-br&page=1&region=BR&vote_average.gte=8&sort_by=vote_average.desc`, options);
+    const response = await fetch(`${BASE_URL}?language=pt-br&page=1&region=BR&vote_average.gte=8&vote_count.gte=50000000000000&sort_by=vote_average.desc`, options);
     const data = await response.json();
     
     return data.results || [];

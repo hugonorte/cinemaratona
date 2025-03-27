@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: 95%;
     
     .profile_picture{
         display: flex;
@@ -21,6 +21,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        
         
         .member_since {
             line-height: 0.4rem;
@@ -51,18 +52,68 @@
     }
 
     .profile_data {
-        
+        flex-grow: 1;        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2rem;
+        padding-left: 2rem;
+
         .movies_summary{
-            background-color: $white;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            
             padding: 1rem 2rem;
             border-radius: 10px;
             span {
                 color:$blue;
                 font-size: 1.2rem;
             }
+            div {
+                background-color: $white;
+                padding: 4rem;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                svg {
+                    width: 20px;
+                    height: auto;
+                }
+                h3 {
+                    color: $blue;
+                    font-size: 1rem;
+                }
+                span {
+                    font-size: 4.2rem;
+                }
+                background: rgb(25,126,240);
+                background: -moz-linear-gradient(180deg, rgba(25,126,240,0.6558998599439776) 0%, rgba(25,126,240,0) 44%);
+                background: -webkit-linear-gradient(180deg, rgba(25,126,240,0.6558998599439776) 0%, rgba(25,126,240,0) 44%);
+                background: linear-gradient(180deg, rgba(25,126,240,0.6558998599439776) 0%, rgba(25,126,240,0) 44%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#197ef0",endColorstr="#197ef0",GradientType=1);
+            }
         }
     }
 }
 .favorites {
     width: 100%;
+}
+.profile_picture_container {
+    margin-top:1rem;
+    width: 200px; /* Define um quadrado */
+    height: 200px;
+    overflow: hidden; /* Esconde o excesso */
+}
+.profile_picture_container img{
+    width: 100%; /* Faz a imagem cobrir o container */
+    height: 100%;
+    object-fit: cover; /* Mantém a proporção e corta o excesso */
+    object-position: center; /* Centraliza o corte */
+    border-radius: 50%;
 }

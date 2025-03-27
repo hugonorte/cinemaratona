@@ -6,6 +6,7 @@ import style from './style.module.scss'
 import { useFavoritesStore } from '../../store/useFavoritesStore'
 import SearchResultsContainer from '../../components/search/search_results'
 import CardMovieSearch from '../../components/card/movie/search'
+import { BiCameraMovie } from "react-icons/bi";
 
 export default function Social() {
 
@@ -43,7 +44,9 @@ export default function Social() {
         <Main>
           <div className={style.profile_header}>
             <div className={style.profile_img}>
-              <img src={user.profile_picture} alt={user.name} />
+              <div className={style.profile_picture_container}>
+                <img src={user.profile_picture} alt={user.name} />
+              </div>
               <div className={style.profile_summary}>
                 <h1>{user.name}</h1>
                 <div className={style.member_since}>
@@ -67,43 +70,67 @@ export default function Social() {
               </div>
             </div>
             <div className={style.profile_data}>
-              <Title tag='h3'>
+             {/*  <Title tag='h3'>
                 HIstórico resumido
-              </Title>
+              </Title> */}
               <div className={style.movies_summary}>
                 <div>
-                  <Title tag='h4'>
-                    Filmes Avaliados: <span>{user.reviews}</span>
+                  <span>{user.reviews}</span>
+                  <BiCameraMovie />
+                  <Title tag='h3'>
+                    Filmes Avaliados: 
                   </Title>
+                  <p>Ver todos</p>
                 </div>
                 <div>
-                  <Title tag='h4'>
-                    Filmes Assistidos: <span>{user.watched_movies}</span>
+                  <span>{user.watched_movies}</span>
+                  <BiCameraMovie />
+                  <Title tag='h3'>
+                    Filmes Assistidos: 
                   </Title>
+                  <p>Ver todos</p>
                 </div>
                 <div>
-                  <Title tag='h4'>
-                    Filmes para assistir: <span>{user.movies_to_watch}</span>
+                  <span>{user.movies_to_watch}</span>
+                  <BiCameraMovie />
+                  <Title tag='h3'>
+                    Filmes para assistir: 
                   </Title>
+                  <p>Ver todos</p>
                 </div>
               </div>
             </div>
           </div>
-            <div className={style.favorites}>
-              <SearchResultsContainer>
+          <div className={style.favorites}>
+            <SearchResultsContainer>
               <Title tag='h2'>Filmes Favoritos</Title>
-                {
-                  moviesDetails.map((favoriteMovie) => (
-                  <CardMovieSearch 
-                    img_source={favoriteMovie.poster_path} 
-                    title={favoriteMovie.title} 
-                    key={favoriteMovie.id} 
-                    release_date={favoriteMovie.release_date} 
-                    id={favoriteMovie.id}/>
-                  ))
-                }                  
-              </SearchResultsContainer>
-            </div>
+              {
+                moviesDetails.map((favoriteMovie) => (
+                  <CardMovieSearch
+                    img_source={favoriteMovie.poster_path}
+                    title={favoriteMovie.title}
+                    key={favoriteMovie.id}
+                    release_date={favoriteMovie.release_date}
+                    id={favoriteMovie.id} />
+                ))
+              }
+            </SearchResultsContainer>
+          </div>
+          <div className={style.favorites}>
+            <SearchResultsContainer>
+              <Title tag='h2'>Filmes Recomendados</Title>
+              {
+                moviesDetails.map((favoriteMovie) => (
+                  <CardMovieSearch
+                    img_source={favoriteMovie.poster_path}
+                    title={favoriteMovie.title}
+                    key={favoriteMovie.id}
+                    release_date={favoriteMovie.release_date}
+                    id={favoriteMovie.id} />
+                ))
+              }
+            </SearchResultsContainer>
+          </div>
         </Main>
       </BaseLayout>
     </>

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import BaseLayout from "../../components/layout";
-import ButtonPrimary from "../../components/button";
+import ButtonPrimary from "../../components/button/primary";
 import style from "./style.module.scss";
-import styleDoComponente from "../../components/button/style.module.scss";
+import styleDoComponente from "../../components/button/primary/style.module.scss";
 
 const Login = () => {
   const [userName, setUsername] = useState("");
@@ -17,7 +17,7 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch("URL da API", {
+      const response = await fetch("http://localhost:5199/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

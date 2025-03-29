@@ -9,26 +9,24 @@ import Login from "./pages/login";
 import Home from './pages/Home/index.tsx';
 import Discover from './pages/discover/index.tsx';
 import Social from './pages/social/index.tsx';
+import Signup from './pages/signup/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
     <Routes>
       {/* <Route path="/" element={<App />} /> */}
-      <Route path="/" element={<Homepage />} />
+    
+      <Route path="/" element={<Home />} />
       <Route path="/teste" element={<Teste />} />
       <Route path="/movie/:id" element={<Movie />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/discover" element={<Discover />} />
+      <Route path="/social" element={<Social />} />
+      <Route path="/filmes" element={<Homepage />} />
+      <Route path="/signup" element={<Signup  />} />
     </Routes>
-      <Routes>
-        {/* <Route path="/" element={<App />} /> */}
-        <Route path="/" element={<Home />} />
-        <Route path="/teste" element={<Teste />} />
-        <Route path="/movie/:id" element={<Movie />} />
-        <Route path="/filmes" element={<Homepage />} />
-        <Route path="/discover" element={<Discover />} />
-        <Route path="/social" element={<Social />} />
-      </Routes>
+
     </BrowserRouter>
   </StrictMode>,
 )

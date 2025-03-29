@@ -1,16 +1,25 @@
 import { useState } from "react";
 import BaseLayout from "../../components/layout";
-import ButtonPrimary from "../../components/button";
+import ButtonPrimary from "../../components/button/primary";
 import style from "./style.module.scss";
-import styleDoComponente from "../../components/button/style.module.scss";
+import styleDoComponente from "../../components/button/primary/style.module.scss";
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (password !== confirmPassword) {
+      setError("Senhas não coincidem");
+      return;
+    }
+    
 
     const userData = {
       name,
@@ -70,6 +79,16 @@ const Signup = () => {
               placeholder="Senha"
             />
           </div>
+          <div className={style.inputField}>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirme sua Senha"
+            />
+          </div>
+
+          {error && <div className={style.error}>{error}</div>}
 
           <ButtonPrimary className={styleDoComponente.button} type="submit" label="Cadastrar" />
 

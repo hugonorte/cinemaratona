@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="100"
+   height="28"
+   viewBox="0 0 100 28"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="Netflix_2015_logo.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.2158203"
+     inkscape:cx="436.74217"
+     inkscape:cy="138.58956"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="m 13.750293,25.283594 c -1.504297,0.26416 -3.035059,0.343359 -4.6185547,0.554297 L 4.3018555,11.691797 V 26.44502 C 2.7975586,26.60332 1.4251953,26.814453 0,27.025586 V 0 H 4.0117187 L 9.5011719,15.334082 V 0 H 13.750293 Z M 22.063867,9.8970703 c 1.636426,0 4.143653,-0.079199 5.647949,-0.079199 v 4.2226557 c -1.873925,0 -4.064355,0 -5.647949,0.0792 v 6.281445 c 2.480957,-0.158301 4.961817,-0.369629 7.468945,-0.448828 v 4.06416 L 17.841016,24.94043 V 0 H 29.532812 V 4.2227539 H 22.063867 Z M 45.236133,4.2228516 H 40.855078 V 23.647461 c -1.425195,0 -2.85039,0 -4.222558,0.05264 V 4.2228516 H 32.251465 V 0 h 12.984863 z m 6.861914,5.3839843 h 5.77998 v 4.2226561 h -5.77998 v 9.580469 H 47.954199 V 0 H 59.751855 V 4.2227539 H 52.098047 Z M 66.61377,19.714941 c 2.401757,0.05264 4.829687,0.237696 7.17871,0.369434 v 4.17002 C 70.018457,24.016699 66.244336,23.779492 62.391113,23.700098 V 0 h 4.222657 z m 10.741601,4.829786 c 1.345996,0.0793 2.771191,0.158496 4.143555,0.316601 V 0 H 77.355371 Z M 100,0 94.642285,12.853027 100,27.025586 c -1.583691,-0.211133 -3.167187,-0.501465 -4.750781,-0.76543 l -3.034961,-7.811914 -3.087598,7.178711 c -1.531055,-0.26416 -3.008984,-0.343359 -4.539453,-0.554492 L 90.023926,12.694531 85.114844,0 h 4.539258 L 92.425293,7.0995117 95.381348,0 Z"
+     fill="#d81f26"
+     id="path2"
+     style="stroke-width:0.0976562" />
+</svg>

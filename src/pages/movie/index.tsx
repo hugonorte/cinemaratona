@@ -9,18 +9,30 @@ import BaseLayout from "../../components/layout";
 import Title from "../../components/title";
 import SearchResultsContainer from "../../components/search/search_results";
 import AverageRating from "../../components/avg_rating";
-import ButtonLight from "../../components/button/light";
 import avatarNotFound from "../../assets/img/avatar_not_found.svg";
 import WatchedBtn from "../../components/button/watched";
 import AddToListBtn from "../../components/button/addToList";
 import RecommendBtn from "../../components/button/recommend";
+import netflix from "../../assets/img/streamings/netflix.svg";
+import disney_plus from "../../assets/img/streamings/disney.svg";
+import amazon from "../../assets/img/streamings/amazon.svg";
+import globoplay from "../../assets/img/streamings/globoplay.svg";
+import max from "../../assets/img/streamings/max.svg";
+import paramount from "../../assets/img/streamings/paramount.svg";
+import apple from "../../assets/img/streamings/apple.svg";
+import Loading from "../../components/loading";
 
 export default function Movie() {
     const { id } = useParams<{ id: string }>();
-    const { movieDetails, fetchMovieDetails } = useMovieDetailsStore();
+    const { movieDetails, fetchMovieDetails, isLoading } = useMovieDetailsStore();
     const { moviePoster, fetchMoviePosters } = useMoviePostersStore();
     const { staff, fetchCast } = useCastStore();
     const { brProvider, fetchBrProvider } = useBrProviderStore();
+    const year = movieDetails?.release_date.split("-")[0];
+    const month = movieDetails?.release_date.split("-")[1];
+    const day = movieDetails?.release_date.split("-")[2];
+    const rating = Math.round((movieDetails?.vote_average ?? 0) * 10) / 10;
+    const director = staff?.crew && staff.crew.filter(x => x.job === "Director")[0]?.name || 'Diretor não encontrado';
 
     useEffect(() => {
         if (id) {
@@ -32,92 +44,109 @@ export default function Movie() {
     }, [id, fetchMovieDetails, fetchMoviePosters, fetchCast, fetchBrProvider]);
 
     if (!movieDetails) {
-        return <p>Carregando...</p>;
+        return <Loading />;
     }
     if (!moviePoster) {
-        return <p>Carregando...</p>;
+        return <Loading />;
     }
-
-    const year = movieDetails.release_date.split("-")[0];
-    const month = movieDetails.release_date.split("-")[1];
-    const day = movieDetails.release_date.split("-")[2];
-    const rating = Math.round(movieDetails.vote_average * 10) / 10;
-    const director = staff?.crew && staff.crew.filter(x => x.job === "Director")[0]?.name || 'Diretor não encontrado';
     
     return (
         <BaseLayout>
             <div className={style.container}>
-                <div>
-                </div>
-                <SearchResultsContainer>
-                    <Title tag="h1">
-                        {movieDetails.title} ({year})
-                    </Title>
-                    <div className={style.details}>
-                        <div className={style.cover}>
-                            <img src={moviePoster.posters.length > 0 ? `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}` : `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetails.poster_path}`} alt={movieDetails.title} />
-                            <AddToListBtn />
-                            <WatchedBtn />
-                            <RecommendBtn />
-                        </div>
-                        <div className={style.description}>
-                            <strong>Nota Média:</strong>
-                            <AverageRating rating={rating} />
-                            {
-                                (brProvider?.flatrate?.length ?? 0) > 0 ?
-                                (
-                                    <>
-                                        <strong>Disponível em:</strong>
-                                        <div className={style.providers}>
-                                        {
-                                            brProvider?.flatrate?.map(
-                                                provider => (
-                                                    <img src={`https://image.tmdb.org/t/p/w45/${provider.logo_path}`} alt={provider.provider_name} key={provider.provider_id}/>
-                                                )
-                                            )
-                                        }
-                                        </div>
-                                    </>
-                                ) : ""
-                            }
-                            <strong>País:</strong>
-                            <p>{movieDetails.origin_country.map(x => x)}</p>
-                            <strong>Título Original:</strong>
-                            <p>{movieDetails.original_title}</p>
-                            <strong>Diretor:</strong>
-                            <p>{director}</p>
-                            <strong>Gênero:</strong>
-                            <p>{movieDetails.genres.map(x => x.name).join(", ")}</p>
-                            <strong>Descrição:</strong>
-                            <p>{movieDetails.overview.length===0?"Nenhuma descrição até o momento":movieDetails.overview}</p>
-                            <strong>Data de Lançamento:</strong>
-                            <p> {day}/{month}/{year}</p>
-                        </div>
-                        <div className={style.cast}>
-                            <strong>Elenco:</strong>
-                            {staff?.cast?.map((actor) => (
-                               actor.known_for_department === "Acting" ?
-                                (
-                                    <div key={actor.cast_id} className={style.actor}>
-                                        <img src={
-                                            actor.profile_path === null ? 
-                                            avatarNotFound : 
-                                            `https://image.tmdb.org/t/p/w45/${actor.profile_path}`
-                                            } alt={actor.name} />
-                                        <div className={style.actor_info}>
-                                            <strong>{actor.name}</strong>
-                                            <p>
-                                            {actor.character}
-                                            </p>
-                                        </div>
-                                    </div>
-                                )
-                                :""
-                                        
-                            ))}
-                        </div>
-                    </div>
-                </SearchResultsContainer>
+                {
+                    isLoading ? (
+                        <Loading />
+                    ) : (
+                        
+                        <SearchResultsContainer>
+                            <Title tag="h1">
+                                {movieDetails.title} ({year})
+                            </Title>
+                            <div className={style.details}>
+                                <div className={style.cover}>
+                                    <img src={moviePoster.posters.length > 0 ? `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}` : `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetails.poster_path}`} alt={movieDetails.title} />
+                                    <WatchedBtn />
+                                    <AddToListBtn />
+                                    <RecommendBtn />
+                                </div>
+                                <div className={style.description}>
+                                    <strong>Nota Média:</strong>
+                                    <AverageRating rating={rating} />
+                                    {
+                                        (brProvider?.flatrate?.length ?? 0) > 0 ?
+                                        (
+                                            <>
+                                                <strong>Disponível em:</strong>
+                                                <div className={style.providers}>
+                                                {
+                                                    brProvider?.flatrate?.map(
+                                                        provider => {
+                                                            switch (provider.provider_id) {
+                                                                case 8:
+                                                                    return (<img src={netflix} alt={provider.provider_name} key={provider.provider_id} />);
+                                                                case 119:
+                                                                    return (<img src={amazon} alt={provider.provider_name} key={provider.provider_id} />);
+                                                                case 1899:
+                                                                    return (<img src={max} alt={provider.provider_name} key={provider.provider_id} />);
+                                                                case 531:
+                                                                    return (<img src={paramount} alt={provider.provider_name} key={provider.provider_id} />);
+                                                                case 337:
+                                                                    return (<img src={disney_plus} alt={provider.provider_name} key={provider.provider_id} />);
+                                                                case 2:
+                                                                    return (<img src={apple} alt={provider.provider_name} key={provider.provider_id} />);
+                                                                case 307:
+                                                                    return (<img src={globoplay} alt={provider.provider_name} key={provider.provider_id} />);
+                                                                default:
+                                                                    return (<Title tag="p" key={provider.provider_id}>{provider.provider_name}</Title>);
+                                                            }
+                                                        }
+                                                    )
+                                                }
+                                                </div>
+                                            </>
+                                        ) : ""
+                                    }
+                                    <strong>País:</strong>
+                                    <p>{movieDetails.origin_country.map(x => x)}</p>
+                                    <strong>Título Original:</strong>
+                                    <p>{movieDetails.original_title}</p>
+                                    <strong>Diretor:</strong>
+                                    <p>{director}</p>
+                                    <strong>Gênero:</strong>
+                                    <p>{movieDetails.genres.map(x => x.name).join(", ")}</p>
+                                    <strong>Descrição:</strong>
+                                    <p>{movieDetails.overview.length===0?"Nenhuma descrição até o momento":movieDetails.overview}</p>
+                                    <strong>Data de Lançamento:</strong>
+                                    <p> {day}/{month}/{year}</p>
+                                </div>
+                                <div className={style.cast}>
+                                    <strong>Elenco:</strong>
+                                    {staff?.cast?.map((actor) => (
+                                    actor.known_for_department === "Acting" ?
+                                        (
+                                            <div key={actor.cast_id} className={style.actor}>
+                                                <img src={
+                                                    actor.profile_path === null ? 
+                                                    avatarNotFound : 
+                                                    `https://image.tmdb.org/t/p/w45/${actor.profile_path}`
+                                                    } alt={actor.name} />
+                                                <div className={style.actor_info}>
+                                                    <strong>{actor.name}</strong>
+                                                    <p>
+                                                    {actor.character}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        )
+                                        :""
+                                                
+                                    ))}
+                                </div>
+                            </div>
+                        </SearchResultsContainer>
+                        
+                    )
+                }
             </div>
         </BaseLayout>
     )

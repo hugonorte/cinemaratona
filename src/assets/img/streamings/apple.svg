@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 99.999997 38.000001"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="Apple_TV_Plus_Logo.svg"
+   width="100"
+   height="38"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="6.9096033"
+     inkscape:cx="53.259208"
+     inkscape:cy="39.437865"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.a{fill:#000;}</style>
+  </defs>
+  <title
+     id="title6">TV+</title>
+  <path
+     class="a"
+     d="m 20.948168,6.1166966 a 8.5622835,8.5622835 0 0 0 1.953541,-6.08705766 8.3669294,8.3669294 0 0 0 -5.572033,2.91033276 8.0405991,8.0405991 0 0 0 -1.99794,5.8406451 6.9661513,6.9661513 0 0 0 5.616432,-2.6639202 m 1.820345,3.0657281 c -3.107907,-0.1798146 -5.727428,1.7759473 -7.214784,1.7759473 -1.487355,0 -3.751687,-1.6782702 -6.193614,-1.6338715 A 9.1394662,9.1394662 0 0 0 1.5903477,14.090698 c -3.3299002,5.771827 -0.88797341,14.369629 2.3531295,19.069229 1.5761528,2.233253 3.4630963,4.894953 5.9716211,4.808376 2.5085247,-0.08658 3.2855017,-1.553954 6.1492157,-1.553954 2.863714,0 3.707289,1.553954 6.193614,1.498455 2.486326,-0.0555 4.217874,-2.237693 5.771828,-4.66186 a 20.68312,20.68312 0 0 0 2.597322,-5.372239 8.4668264,8.4668264 0 0 1 -5.039249,-7.69873 8.6577407,8.6577407 0 0 1 4.062478,-7.228103 8.8597546,8.8597546 0 0 0 -6.881794,-3.7738871 m 19.824006,-4.475386 v 6.3379101 h 5.061449 v 4.184575 h -5.061449 v 14.995651 c 0,2.237693 0.99897,3.378738 3.218904,3.378738 a 16.609542,16.609542 0 0 0 1.820345,-0.133196 v 4.217874 a 17.36654,17.36654 0 0 1 -2.99691,0.221993 c -5.239043,0 -7.259182,-2.035679 -7.259182,-7.139306 V 15.324981 h -3.973681 v -4.195674 h 3.862684 V 4.7070388 Z M 65.346838,37.675271 H 59.797004 L 50.473283,11.129307 h 5.527635 l 6.548803,21.329121 h 0.133196 l 6.548804,-21.329121 h 5.416638 z m 24.37487,0 H 84.926651 V 26.797597 H 74.62616 V 22.006981 H 84.904452 V 11.129307 h 4.795056 V 22.006981 H 100 v 4.790616 H 89.721708 Z"
+     id="path8"
+     style="stroke-width:2.21993" />
+  <metadata
+     id="metadata295">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>TV+</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

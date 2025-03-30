@@ -114,6 +114,7 @@ export interface PopularMovieState {
 export interface MovieDetailsState {
     movieDetails: Movie | null;
     fetchMovieDetails: (movie_id: number) => Promise<void>;
+    isLoading: boolean;
 }
 export interface MoviePosterState {
     moviePoster: MoviePoster | null;
@@ -123,6 +124,7 @@ export interface MoviePosterState {
 export interface GenreState {
   genres: Genre[] | null;
   fetchGenres: () => Promise<void>;
+  isLoading: boolean;
 }
 export interface StreamingProviderState {
   streamingProviders: StreamingProvider[] | null;

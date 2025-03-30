@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route} from "react-router";
 import './index.css'
 import Teste from './pages/teste/index.tsx';
-import Homepage from './pages/homepage/index.tsx';
+import MovieSearch from './pages/search/index.tsx';
 import Movie from './pages/movie/index.tsx';
 import Home from './pages/Home/index.tsx';
 import Discover from './pages/discover/index.tsx';
@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<Home />} />
         <Route path="/teste" element={<Teste />} />
         <Route path="/movie/:id" element={<Movie />} />
-        <Route path="/filmes" element={<Homepage />} />
+        <Route path="/filmes" element={<MovieSearch />} />
         <Route path="/discover" element={<Discover />} />
         <Route path="/social" element={<Social />} />
       </Routes>

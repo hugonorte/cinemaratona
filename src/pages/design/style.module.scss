@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    margin: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #f6fbff;
+    padding: 2rem;
+
+    .colors_row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: start;
+        width: fit-content;
+        margin: auto;
+        padding: 1rem;
+        gap: 1.2rem
+    }
+}

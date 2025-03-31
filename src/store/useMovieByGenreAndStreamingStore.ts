@@ -8,4 +8,5 @@ export const useMovieByGenreAndStreamingStore = create<MovieState>((set) => ({
     const movies = await fetchMoviesByGenreAndStreamingFromAPI(genre_id ?? 0, provider_id ?? 0);
     set({ movies });
   },
+  isLoading: false
 }));

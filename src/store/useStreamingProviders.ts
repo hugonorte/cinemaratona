@@ -11,4 +11,5 @@ export const useStreamingProvidersStore = create<StreamingProviderState>((set, g
     const newStreamingProviders = await fetchStreamingProvidersFromAPI();
     set({ streamingProviders: newStreamingProviders });
   },
+  isLoading: false
 }));

@@ -24,3 +24,27 @@
     }
   }
 }
+.streamings_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: fit-content;
+  height: auto;
+  gap: 1rem;
+
+  button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    height: 90px;
+    width: auto;
+
+    &:hover {
+      background-color: #f8fcff;
+    }
+  }
+}

@@ -102,6 +102,7 @@ export interface StreamingProvider {
 export interface MovieState {
     movies: Movie[];
     fetchMovies: (title?: string, genre_id?:number, provider_id?:number) => Promise<void>;
+    isLoading: boolean;
 }
 export interface TopRatedMovieState {
     topRatedmovies: Movie[];
@@ -129,6 +130,7 @@ export interface GenreState {
 export interface StreamingProviderState {
   streamingProviders: StreamingProvider[] | null;
   fetchStreamingProviders: () => Promise<void>;
+  isLoading: boolean;
 }
 
 export interface CastState {

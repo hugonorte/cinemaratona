@@ -1,6 +1,7 @@
 @use "sass:color";
 
 /* MAIN PALETTES */
+$black:#000000;
 $white:#FFFFFF;
 $dark-blue:#010626;
 $medium-blue:#022859;
@@ -9,29 +10,52 @@ $light-blue:#2481A6;
 $yellow:#FFCC00;
 
 /*Blue color in Darker variations*/
-$blue_dark1:color.scale($blue, $lightness: -10%, $space: oklch);
-$blue_dark2:color.scale($blue, $lightness: -20%, $space: oklch);
-$blue_dark3:color.scale($blue, $lightness: -30%, $space: oklch);  
-$blue_dark4:color.scale($blue, $lightness: -40%, $space: oklch);
-$blue_dark5:color.scale($blue, $lightness: -50%, $space: oklch);
-$blue_dark6:color.scale($blue, $lightness: -60%, $space: oklch);
-$blue_dark7:color.scale($blue, $lightness: -70%, $space: oklch);
-$blue_dark8:color.scale($blue, $lightness: -80%, $space: oklch);
-$blue_dark9:color.scale($blue, $lightness: -90%, $space: oklch);
-$blue_dark10:color.scale($blue, $lightness: -100%, $space: oklch);
+$blue_dark1:color.mix($blue, $black, 100%);
+$blue_dark2:color.mix($blue, $black, 90%);
+$blue_dark3:color.mix($blue, $black, 80%);
+$blue_dark4:color.mix($blue, $black, 70%);
+$blue_dark5:color.mix($blue, $black, 60%);
+$blue_dark6:color.mix($blue, $black, 50%);
+$blue_dark7:color.mix($blue, $black, 40%);
+$blue_dark8:color.mix($blue, $black, 30%);
+$blue_dark9:color.mix($blue, $black, 20%);
+$blue_dark10:color.mix($blue, $black, 10%);
 
 /*Blue color in Lighter variations*/
-$blue_light1:color.scale($blue, $lightness: 10%, $space: oklch);
-$blue_light2:color.scale($blue, $lightness: 20%, $space: oklch);
-$blue_light3:color.scale($blue, $lightness: 30%, $space: oklch);  
-$blue_light4:color.scale($blue, $lightness: 40%, $space: oklch);
-$blue_light5:color.scale($blue, $lightness: 50%, $space: oklch);
-$blue_light6:color.scale($blue, $lightness: 60%, $space: oklch);
-$blue_light7:color.scale($blue, $lightness: 70%, $space: oklch);
-$blue_light8:color.scale($blue, $lightness: 80%, $space: oklch);
-$blue_light9:color.scale($blue, $lightness: 90%, $space: oklch);
-$blue_light10:color.scale($blue, $lightness: 100%, $space: oklch);
+$blue_light1:color.mix($blue, $white, 100%);
+$blue_light2:color.mix($blue, $white, 90%);
+$blue_light3:color.mix($blue, $white, 80%);
+$blue_light4:color.mix($blue, $white, 70%);
+$blue_light5:color.mix($blue, $white, 60%);
+$blue_light6:color.mix($blue, $white, 50%);
+$blue_light7:color.mix($blue, $white, 40%);
+$blue_light8:color.mix($blue, $white, 30%);
+$blue_light9:color.mix($blue, $white, 20%);
+$blue_light10:color.mix($blue, $white, 10%);
 
+/* GRAYS */
+$gray1: color.mix($white, $black, 95%);
+$gray2: color.mix($white, $black, 90%);
+$gray3: color.mix($white, $black, 80%);
+$gray4: color.mix($white, $black, 70%);
+$gray5: color.mix($white, $black, 60%);
+$gray6: color.mix($white, $black, 50%);
+$gray7: color.mix($white, $black, 40%);
+$gray8: color.mix($white, $black, 30%);
+$gray9: color.mix($white, $black, 20%);
+$gray10: color.mix($white, $black, 10%);
+
+/* BLUED GRAYS */
+$bluedgray1: color.mix($blue, $gray1, 15%);
+$bluedgray2: color.mix($blue, $gray2, 15%);
+$bluedgray3: color.mix($blue, $gray3, 15%);
+$bluedgray4: color.mix($blue, $gray4, 15%);
+$bluedgray5: color.mix($blue, $gray5, 15%);
+$bluedgray6: color.mix($blue, $gray6, 15%);
+$bluedgray7: color.mix($blue, $gray7, 15%);
+$bluedgray8: color.mix($blue, $gray8, 15%);
+$bluedgray9: color.mix($blue, $gray9, 15%);
+$bluedgray10: color.mix($blue, $gray10, 15%);
 
 /* BUTTONS COLORS */
 $button-border: $light-blue;

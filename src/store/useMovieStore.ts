@@ -9,4 +9,5 @@ export const useMovieStore = create<MovieState>((set) => ({
     const movies = await fetchMoviesFromAPI(title);
     set({ movies });
   },
+  isLoading: false
 }));

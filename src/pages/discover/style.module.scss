@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 
   .genres {
     margin: auto;
@@ -21,18 +22,23 @@
       align-items: start;
       gap: 1rem;
       margin-bottom: 2rem;
+
+      button{
+        flex-grow: 1;
+      }
     }
   }
 }
 .streamings_container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  width: fit-content;
+  width: 90%;
   height: auto;
   gap: 1rem;
+  flex-wrap: wrap;
 
   button {
     display: flex;
@@ -42,6 +48,10 @@
     padding: 1rem;
     height: 90px;
     width: auto;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
 
     &:hover {
       background-color: #f8fcff;

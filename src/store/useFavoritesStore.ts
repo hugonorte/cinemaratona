@@ -5,6 +5,7 @@ import { Movie } from "../types";
 interface FavoritesState {
   moviesDetails: Movie[];
   fetchFavoritesDetails: (movieIds: number[]) => Promise<void>;
+  isLoading: boolean;
 }
 
 export const useFavoritesStore = create<FavoritesState>((set) => ({
@@ -14,6 +15,7 @@ export const useFavoritesStore = create<FavoritesState>((set) => ({
     const moviesDetails = await fetchMultipleMoviesDetailsFromAPI(movieIds);
     set({ moviesDetails });
   },
+  isLoading: false
 }));
 
 

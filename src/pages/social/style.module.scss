@@ -21,6 +21,17 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        a {
+            color: $blue;
+
+            &:hover {
+                text-decoration: underline;
+                color: $blue_dark5;
+            }
+        }
+
+        
         
         
         .member_since {

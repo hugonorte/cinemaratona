@@ -1,0 +1,88 @@
+@use "../../styles/color.scss" as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        a{
+            color:$blue;
+            &:hover{
+                color:$blue_dark9;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .profile_picture_container {
+        margin-top:1rem;
+        width: 200px; 
+        height: 200px;
+        overflow: hidden; 
+    }
+    .profile_picture_container img{
+        width: 100%; 
+        height: 100%;
+        object-fit: cover; /* Mantém a proporção e corta o excesso */
+        object-position: center; /* Centraliza o corte */
+        border-radius: 50%;
+    }
+    .image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border: none
+    }
+    form {
+        width: 100%;
+    }
+
+    input {
+        color: $blue_dark3;
+        border: solid 1px $blue_dark5;
+        padding: 0.4rem 0.6rem;
+        border-radius: 0.2rem;
+        background-color: $blue_light10;
+        font-size: 1.5rem;
+        max-width: 100%;
+        margin: 0.5rem;
+        width: 95%;
+
+        &:hover{
+            border: solid 1px $blue_dark2;
+            background-color: $gray1;
+        }
+    }
+
+    .genres {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        flex-direction: row;
+        margin-bottom:2rem;
+
+        button {
+            margin-bottom: 1rem;
+        }
+    }
+
+    
+}

@@ -9,6 +9,7 @@ import Home from './pages/Home/index.tsx';
 import Discover from './pages/discover/index.tsx';
 import Social from './pages/social/index.tsx';
 import Design from './pages/design/index.tsx';
+import Profile from './pages/profile/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/discover" element={<Discover />} />
         <Route path="/social" element={<Social />} />
         <Route path="/design" element={<Design />} />
+        <Route path="/profile/edit" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

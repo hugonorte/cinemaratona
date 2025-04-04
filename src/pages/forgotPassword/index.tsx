@@ -1,7 +1,8 @@
 import { useState } from "react";
 import BaseLayout from "../../components/layout";
-import ButtonPrimary from "../../components/button";
+import ButtonPrimary from "../../components/button/primary";
 import style from "./style.module.scss";
+
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -39,7 +40,7 @@ const ForgotPassword = () => {
       });
 
       if (response.ok) {
-        setStep(3); // Avança para redefinir a senha
+        setStep(3);
       } else {
         alert("Código inválido.");
       }
@@ -74,6 +75,9 @@ const ForgotPassword = () => {
         {step === 1 && (
           <form onSubmit={handleSendEmail}>
             <h1>Recuperar Senha</h1>
+            <hr></hr>
+            <p>Informe o seu email cadastrado para a recuperação da sua senha</p>
+            <div className={style.inputField}>
             <input
               type="email"
               value={email}
@@ -81,6 +85,7 @@ const ForgotPassword = () => {
               placeholder="Digite seu email"
               required
             />
+            </div>
             <ButtonPrimary type="submit" label="Enviar Código" />
           </form>
         )}

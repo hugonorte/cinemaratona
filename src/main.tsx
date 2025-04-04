@@ -10,6 +10,7 @@ import Home from './pages/Home/index.tsx';
 import Discover from './pages/discover/index.tsx';
 import Social from './pages/social/index.tsx';
 import Signup from './pages/signup/index.tsx';
+import ForgotPassword from './pages/forgotPassword/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path="/social" element={<Social />} />
       <Route path="/filmes" element={<Homepage />} />
       <Route path="/signup" element={<Signup  />} />
+      <Route path="/forgotPassword" element={<ForgotPassword /> } />
     </Routes>
 
     </BrowserRouter>

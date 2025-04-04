@@ -58,17 +58,20 @@
     width: 100%;
     justify-content: flex-start;
     color: red;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+      
 }
 
 a {
-    font-size: 16px; /* Tamanho inicial da fonte */
-    transition: font-size 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição mais lenta e suave */
-    margin-top: 10px; /* Espaço entre o link e o elemento acima */
-    margin-bottom: 5px; /* Espaço entre o link e o elemento abaixo */
-    display: inline-block; /* Garante que o link não ocupe a largura total */
+    font-size: 16px;
+    transition: font-size 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    margin-top: 10px; 
+    margin-bottom: 5px; 
+    display: inline-block; 
   
     &:hover {
-      font-size: 18px; /* Novo tamanho quando o mouse estiver por cima */
+      font-size: 18px; 
     }
   }
   

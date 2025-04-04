@@ -29,6 +29,7 @@ const Login = () => {
 
 
       //Incompleto, verificar com o grupo.
+
       if (response.ok) {
         alert("Login realizado com sucesso!");
         console.log("Token recebido:", data.token);
@@ -68,7 +69,7 @@ const Login = () => {
               <input type="checkbox" />
               Lembrar de mim
             </label>
-            <a href="#">Esqueci minha senha</a>
+            <a href="/forgotPassword">Esqueci minha senha</a>
           </div>
 
           <ButtonPrimary className={styleDoComponente.button} type="submit" label="Entrar" />

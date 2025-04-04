@@ -15,7 +15,7 @@
 
 .container form {
     position: relative;
-    bottom: 110px;
+    bottom: 5vw;
     border-radius: 7px;
     min-width: 30vw;
     padding: 10px;
@@ -56,10 +56,12 @@
 .recallForget input[type="checkbox"] {
     position: relative;
     margin-right: 4px;
-    top: 2px;
+    top: 3px;
   }
 
 .recallForget label {
+    position: relative;
+    top: 12px;
     color: #fff;
 }
 

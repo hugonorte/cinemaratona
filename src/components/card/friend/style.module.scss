@@ -1,0 +1,15 @@
+@use '@/styles/color' as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:0.3rem;
+
+    span{
+        font-size: 0.888rem;
+        color: $blue;
+        text-decoration: none;
+    }
+}

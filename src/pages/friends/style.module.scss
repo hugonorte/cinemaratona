@@ -1,0 +1,78 @@
+@use '@/styles/color' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    a {
+      font-size: 1.5rem;
+      color: $blue;
+      text-decoration: none;
+      font-size: 0.888rem;
+    }
+  }
+  .search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    label{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      font-size: 0.888rem;
+      gap:0.3rem;
+      .input {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        input{
+          border-right: none !important;
+          height: 17px;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+          font-size: 12px;
+        }
+
+        button{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          border-left: none !important;
+          height: 22px;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+
+        input, button {
+          border: solid 2px $blue;
+        }
+      }
+    }
+  }
+  .friendship {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .friendship > *{
+    flex:1;
+  }
+}

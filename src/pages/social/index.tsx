@@ -70,12 +70,16 @@ export default function Social() {
                     </div>
                     <div className={style.follow_container}>
                       <div>
-                        <span className={style.number}>{user.followers}</span>
-                        <Title tag='h5'>Seguidores</Title>
+                        <Link to="/friends">
+                          <span className={style.number}>{user.followers}</span>
+                          <Title tag='h5'>Seguidores</Title>
+                        </Link>
                       </div>
                       <div>
-                        <span className={style.number}>{user.following}</span>
-                        <Title tag='h5'>Seguindo</Title>
+                        <Link to="/friends">
+                          <span className={style.number}>{user.following}</span>
+                          <Title tag='h5'>Seguindo</Title>
+                        </Link>
                       </div>
                     </div>
                   </div>

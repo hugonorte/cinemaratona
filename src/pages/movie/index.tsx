@@ -21,6 +21,7 @@ import max from "../../assets/img/streamings/max.svg";
 import paramount from "../../assets/img/streamings/paramount.svg";
 import apple from "../../assets/img/streamings/apple.svg";
 import Loading from "../../components/loading";
+import FavoriteBtn from "@/components/button/addTofavorite";
 
 export default function Movie() {
     const { id } = useParams<{ id: string }>();
@@ -66,6 +67,7 @@ export default function Movie() {
                                 <div className={style.cover}>
                                     <img src={moviePoster.posters.length > 0 ? `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}` : `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetails.poster_path}`} alt={movieDetails.title} />
                                     <WatchedBtn />
+                                    <FavoriteBtn />
                                     <AddToListBtn />
                                     <RecommendBtn />
                                 </div>

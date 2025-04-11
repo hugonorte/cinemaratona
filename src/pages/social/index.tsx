@@ -60,6 +60,7 @@ export default function Social() {
                         Editar <HiOutlinePencilSquare />
                       </Link>
                     </p>
+                    {/* 
                     <div className={style.member_since}>
                       <p>
                         Membro desde
@@ -67,7 +68,8 @@ export default function Social() {
                       <p>
                         {user.member_since.split('-').reverse().join('/')}
                       </p>
-                    </div>
+                    </div> 
+                    */}
                     <div className={style.follow_container}>
                       <div>
                         <Link to="/friends">

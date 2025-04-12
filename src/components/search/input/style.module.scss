@@ -1,4 +1,4 @@
-@use "../../../styles/color" as colors;
+@use "@/styles/color" as *;
 
 .search {
     width: 100%;
@@ -11,33 +11,35 @@
         flex-grow: 1;
         padding: 0.5rem;
         font-size: 1rem;
-        border-top-color: colors.$button-border;
-        border-left-color: colors.$button-border;
-        border-bottom-color: colors.$button-border;
+        border-top-color: $button-border;
+        border-left-color: $button-border;
+        border-bottom-color: $button-border;
         border-right: none;
         border-top-left-radius: 0.5rem;
         border-bottom-left-radius: 0.5rem;
+        background-color: $bluedgray1;
     }
+
     button {
         width: 20%;
         padding: 0.5rem;
         font-size: 1rem;
-        background: colors.$background-blue-button;
-        background: colors.$background-blue-button-moz;
-        background: colors.$background-blue-button-webkit;
-        background: colors.$background-blue-button-linear;
-        filter: colors.$background-blue-button-filter;
-        color: colors.$white;
-        border-top-color: colors.$button-border;
-        border-right-color: colors.$button-border;
-        border-bottom-color: colors.$button-border;
+        background: $background-blue-button;
+        background: $background-blue-button-moz;
+        background: $background-blue-button-webkit;
+        background: $background-blue-button-linear;
+        filter: $background-blue-button-filter;
+        color: $white;
+        border-top-color: $button-border;
+        border-right-color: $button-border;
+        border-bottom-color: $button-border;
         border-right: none;
         border-top-right-radius: 0.5rem;
         border-bottom-right-radius: 0.5rem;
         font-weight: bold;
 
         &:hover {
-            background: colors.$blue_dark1;
+            background: $blue_dark1;
         }
     }
 }

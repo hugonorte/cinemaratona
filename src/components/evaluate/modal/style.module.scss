@@ -1,0 +1,29 @@
+@use "@/styles/color" as *;
+
+.rankingMovieModal {
+    display: flex;
+    flex-direction: column;
+}
+
+.numbers_row {
+    display: flex;
+    justify-content: space-between;
+}
+.review{
+    textarea {
+        border: solid 1px $blue_light5;
+        width: 100%;
+        margin-top:1rem
+    }
+}
+
+.rankingNumber {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $blue_dark1;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    border: solid 1px $blue_light5;
+    padding: 0.4rem 0.7rem;
+    border-radius: 30px;
+}

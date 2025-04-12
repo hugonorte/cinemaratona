@@ -1,11 +1,11 @@
-@use "../../../styles/color" as colors;
+@use "@/styles/color" as *;
 
 .button {
-    background: colors.$background-blue-button;
-    background: colors.$background-blue-button-moz;
-    background: colors.$background-blue-button-webkit;
-    background: colors.$background-blue-button-linear;
-    filter: colors.$background-blue-button-filter;
+    background: $background-blue-button;
+    background: $background-blue-button-moz;
+    background: $background-blue-button-webkit;
+    background: $background-blue-button-linear;
+    filter: $background-blue-button-filter;
     color: white;
     padding: 0.888rem 1.888rem;
     border: none;
@@ -17,11 +17,11 @@
     &:hover {
         font-size: 0.999rem;
         cursor: pointer;
-        background: colors.$background-blue-button-hover;
-        background: colors.$background-blue-button-hover-moz;
-        background: colors.$background-blue-button-hover-webkit;
-        background: colors.$background-blue-button-hover-linear;
-        filter: colors.$background-blue-button-hover-filter;
+        background: $background-blue-button-hover;
+        background: $background-blue-button-hover-moz;
+        background: $background-blue-button-hover-webkit;
+        background: $background-blue-button-hover-linear;
+        filter: $background-blue-button-hover-filter;
     }
 }
 

@@ -22,6 +22,16 @@ import paramount from "../../assets/img/streamings/paramount.svg";
 import apple from "../../assets/img/streamings/apple.svg";
 import Loading from "../../components/loading";
 import FavoriteBtn from "@/components/button/addTofavorite";
+import EvaluateBadge from "@/components/evaluate";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog"
+import RankingMovieModal from "@/components/evaluate/modal";
 
 export default function Movie() {
     const { id } = useParams<{ id: string }>();
@@ -74,6 +84,20 @@ export default function Movie() {
                                 <div className={style.description}>
                                     <strong>Nota Média:</strong>
                                     <AverageRating rating={rating} />
+                                    <Dialog>
+                                        <DialogTrigger>
+                                            <EvaluateBadge />
+                                        </DialogTrigger>
+                                        <DialogContent className="bg-white h-1/3">
+                                            <DialogHeader>
+                                            <DialogTitle>Dê a sua nota para esse filme</DialogTitle>
+                                            <DialogDescription>
+                                                <RankingMovieModal />
+                                            </DialogDescription>
+                                            </DialogHeader>
+                                        </DialogContent>
+                                    </Dialog>
+                                                                
                                     {
                                         (brProvider?.flatrate?.length ?? 0) > 0 ?
                                         (

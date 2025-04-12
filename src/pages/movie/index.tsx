@@ -84,20 +84,21 @@ export default function Movie() {
                                 <div className={style.description}>
                                     <strong>Nota Média:</strong>
                                     <AverageRating rating={rating} />
-                                    <Dialog>
-                                        <DialogTrigger>
-                                            <EvaluateBadge />
-                                        </DialogTrigger>
-                                        <DialogContent className="bg-white h-1/3">
-                                            <DialogHeader>
-                                            <DialogTitle>Dê a sua nota para esse filme</DialogTitle>
-                                            <DialogDescription>
-                                                <RankingMovieModal />
-                                            </DialogDescription>
-                                            </DialogHeader>
-                                        </DialogContent>
-                                    </Dialog>
-                                                                
+                                    <div>
+                                        <Dialog>
+                                            <DialogTrigger>
+                                                <EvaluateBadge />
+                                            </DialogTrigger>
+                                            <DialogContent className="bg-white h-1/3">
+                                                <DialogHeader>
+                                                <DialogTitle>Dê a sua nota para esse filme</DialogTitle>
+                                                <DialogDescription>
+                                                    <RankingMovieModal />
+                                                </DialogDescription>
+                                                </DialogHeader>
+                                            </DialogContent>
+                                        </Dialog>
+                                    </div>
                                     {
                                         (brProvider?.flatrate?.length ?? 0) > 0 ?
                                         (

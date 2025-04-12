@@ -1,0 +1,38 @@
+@use '@/styles/color' as *;
+
+.friendship_request {
+    display: flex;
+    padding: 0.88rem 0;
+    background-color: $gray1;
+}
+
+.requester {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap:0.8rem;
+    flex:0 0 40%;
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+    h3 {
+        font-size: 1.2rem;
+        color: var(--color-primary);
+        text-align: center;
+    }
+    
+    p{
+        text-align: center;
+    }
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap:0.8rem;
+    flex:0 0 60%;
+}

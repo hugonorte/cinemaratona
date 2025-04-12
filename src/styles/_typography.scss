@@ -1,0 +1,14 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+h1 {
+  @include apply-styles(map-get($typography, h1));
+}
+
+h2 {
+  @include apply-styles(map-get($typography, h2));
+}
+
+p {
+  @include apply-styles(map-get($typography, p));
+}

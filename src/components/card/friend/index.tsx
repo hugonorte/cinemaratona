@@ -1,5 +1,4 @@
 import style from './style.module.scss';
-import Pedro from '@/assets/img/friends/pedro.png';
 
 interface FriendCardProps {
     name: string;

@@ -1,0 +1,21 @@
+@use '@/styles/color' as *;
+@use "sass:color";
+
+.acceptBtn {
+    button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        background-color: $blue;
+        color: $white;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: color.mix(black, $blue, 15%);
+            color: color.mix(black, $white, 15%);
+            font-size: 1rem;
+        }
+    }
+}

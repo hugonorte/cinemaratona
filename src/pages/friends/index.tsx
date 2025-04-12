@@ -3,64 +3,61 @@ import Main from '@/components/containers/main';
 import BaseLayout from '@/components/layout';
 import Title from '@/components/title';
 import style from './style.module.scss';
-import ButtonPrimary from '@/components/button/primary';
-import { IoSearch } from "react-icons/io5";
 import FriendCard from '@/components/card/friend';
-
-const user = {
-    name: 'Silvio Santos',
-    email: 'silvio@sbt.com.br',
-    reviews: 4,
-    favorite_movies: [1125899, 1165067, 822119, 777443, 1356039],
-    recommended_movies: [],
-    watched_movies: 252,
-    movies_to_watch: 43,
-    followers: 123,
-    following: 123,
-    member_since: '2021-01-01',
-    profile_picture: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRUUZ9UwhvJRuQaYvBYYEkurKsHuum9dH8g-VOVS6wuzx_CRnMJLpBPijMx9scxRDycudaVYjA2qrF8XL8kz7i0ow'
-}
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+import FriendshipRequestsModal from '@/components/modal/friendship_requests';
+import rato from '@/assets/img/friends/rato.png';
+import ellen from '@/assets/img/friends/ellen.png';
+import elke from '@/assets/img/friends/elke.png';
+import pedro from '@/assets/img/friends/pedro.png';
+import SmallSearch from '@/components/search/small_search';
 
 export default function Friends() {
-  return (
-    <BaseLayout>
-        <Main>
-            <div className={style.container}>
-                <div className={style.title}>
-                    <Title tag='h1'>Amigos</Title>
-                    <Link to='/social'>Voltar</Link>
-                </div>
-                <div className={style.search}>
-                    <span>
-                        324 amigos
-                    </span>
-                    <label>
-                        Buscar amigo
-                        <div className={style.input}>
-                            <input type="text" placeholder="Buscar"/>
-                            <button>
-                                <IoSearch />
-                            </button>
-                        </div>                            
-                    </label>
-                </div>
-                <div className={style.requests}>
-                    <span>
-                        Solicitações de amizade (3)
-                    </span>
-                </div>
+    return (
+        <BaseLayout>
+            <Main>
+                <div className={style.container}>
+                    <div className={style.title}>
+                        <Title tag='h1'>Amigos</Title>
+                        <Link to='/social'>Voltar</Link>
+                    </div>
+                    <div className={style.search}>
+                        <span>
+                            4 amigos
+                        </span>
+                        <SmallSearch label='Buscar amigos' placeholder='Buscar'/>
+                    </div>
+                    <div className={style.requests}>
+                        <Dialog>
+                            <DialogTrigger>
+                                <button type="button" className="text-gray-900 focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Solicitações de Amizade (1)</button>
+                            </DialogTrigger>
+                            <DialogContent className="bg-white ">
+                                <DialogHeader>
+                                    <DialogTitle>Solicitações de amizade</DialogTitle>
+                                    <DialogDescription>
+                                        <FriendshipRequestsModal />
+                                    </DialogDescription>
+                                </DialogHeader>
+                            </DialogContent>
+                        </Dialog>
+                    </div>
 
-                <div className={style.friendship}>
-                    <FriendCard />
-                    <FriendCard />
-                    <FriendCard />
-                    <FriendCard />
-                    <FriendCard />
-                    <FriendCard />
-                    <FriendCard />
+                    <div className={style.friendship}>
+                        <FriendCard name='Pedro de Lara' picture={pedro} onClick={()=>console.log("clique")}/>
+                        <FriendCard name='Elke Maravilha' picture={elke} onClick={()=>console.log("clique")}/>
+                        <FriendCard name='Ellen Ganzarolli' picture={ellen} onClick={()=>console.log("clique")}/>
+                        <FriendCard name='Ratinho' picture={rato} onClick={()=>console.log("clique")}/>
+                    </div>
                 </div>
-            </div>
-        </Main>
-    </BaseLayout>
-  )
+            </Main>
+        </BaseLayout>
+    )
 }

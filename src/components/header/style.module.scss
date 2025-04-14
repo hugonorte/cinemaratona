@@ -1,47 +1,56 @@
+
 .header {
     color: white;
     margin: 2rem 2rem;
     padding: 1rem;
-}
-
-nav, ul, .buttons, .header {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap:1.5rem;
 }
-li {
-    list-style-type: none;
-    transition: font-size 0.3s ease-in-out;
-    font-size: 1rem;
-    padding: 0.3rem;
-
-    &:hover {
-        font-size: 1.1rem;
-        cursor: pointer;
-        color: skyblue;
-        text-decoration: underline;
-        text-underline-offset: 0.5rem;
-    }
-}
-a {
-    text-decoration: none;
+.trigger{
     color: white;
-
-    &:hover {
-        color: skyblue;
-    }
-    &:visited,  &:link {
-        color: white;
-    }
-}
-a:hover {
-    color: skyblue;
+    margin: 2rem 2rem;
+    padding: 1rem;
+    font-size: 2rem;
 }
 
-.logo {
-    font-family: 'Sigmar' , sans-serif;
-    font-size: 1.8rem;
-    color: rgb(226, 243, 255);
+
+
+@media screen and (max-width: 768px) {
+    .header {
+        display: none;
+    }
+    .mobile_nav {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .header {
+        display: flex;
+    }
+    .mobile_nav {
+        display: none !important;
+    }
+}
+
+.mobile_nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+
+    ul {
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    button {
+        svg {
+            color: white !important;
+            fill: white !important;
+        }
+    }
 }

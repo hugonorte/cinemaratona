@@ -7,6 +7,10 @@ import SearchResultsContainer from '../../components/search/search_results';
 import { useEffect } from 'react';
 import CardMovieSearch from '../../components/card/movie/search';
 import ButtonPrimary from '../../components/button/primary'
+import { VscChecklist } from "react-icons/vsc";
+import { FaPeopleLine } from "react-icons/fa6";
+import { MdMovieFilter } from "react-icons/md";
+
 
 export default function Home() {
 
@@ -28,7 +32,6 @@ export default function Home() {
                 </div>
             </section>
             <section className={style.trends}>
-                <div className={style.title}>
                   <Title tag="h2" customColor='#FFFFFF'>
                     Filmes que estão em alta
                   </Title>
@@ -39,13 +42,37 @@ export default function Home() {
                     ))
                   }                  
                   </SearchResultsContainer>
-                </div>
             </section>
-            <section className={style.social}>
+          <section className={style.social}>
+            {/* Registre os filmes que já viu
+            Adicione seus amigos
+            Troque recomendações com amigos e descubra novos títulos para assistir 
+            import { VscChecklist } from "react-icons/vsc";
+import { FaPeopleLine } from "react-icons/fa6";
+import { MdMovieFilter } from "react-icons/md";
+            
+            */}
+            <div className={style.checklist}>
+              <VscChecklist size={150} color="#FFFFFF" />
+              <Title tag="h3" customColor='#FFFFFF'>
+                Registre os filmes que já viu
+              </Title>
+            </div>
+            <div className={style.connect}>
+              <FaPeopleLine size={150} color="#FFFFFF" />
+              <Title tag="h3" customColor='#FFFFFF'>
+                Adicione seus amigos
+              </Title>
+            </div>
+            <div className={style.discover}>
+              <MdMovieFilter size={150} color="#FFFFFF" />
+              <Title tag="h3" customColor='#FFFFFF'>
+                Descubra novos títulos
+              </Title>
+            </div>
 
-            </section>
+          </section>
             <section className={style.top_rated}>
-                <div className={style.title}>
                   <Title tag="h2" customColor='#FFFFFF'>
                     Filmes Preferidos dos Usuários
                   </Title>
@@ -56,7 +83,6 @@ export default function Home() {
                     ))
                   }                  
                   </SearchResultsContainer>
-                </div>
             </section>
         </div>
     </BaseLayout>

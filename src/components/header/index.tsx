@@ -1,43 +1,52 @@
 import style from './style.module.scss'
-import ButtonPrimary from '../button/primary'
 import Logo from '../logo'
 import { Link } from 'react-router'
+import {
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet"
+import { IoMenu } from "react-icons/io5";
+import Nav from '../nav'
+
 
 function Header() {
-  return (
-    <div className={style.header}>
-        <Link to={`/`}>
-            <Logo />
-        </Link>
-        <nav>
-            <ul>
-                <li>
-                    <Link to={`/`}>
-                        Home
-                    </Link>
-                </li>
-                <li>
-                    <Link to={`/filmes`}>
-                        Filmes
-                    </Link>
-                </li>
-                <li>
-                    <Link to={`/social`}>
-                        Social
-                    </Link>
-                </li>
-                <li>
-                    <Link to={`/discover`}>
-                        Discover
-                    </Link>
-                </li>
-            </ul>
-            <div className={style.buttons}>
-                <ButtonPrimary type="button" label="Login"/>
+    return (
+        <>
+            <div className={style.header}>
+                <Link to={`/`}>
+                    <Logo />
+                </Link>
+                <Nav />
             </div>
-        </nav>
-    </div>
-  )
+            <div className={style.mobile_nav}>
+                <Link to={`/`}>
+                    <Logo />
+                </Link>
+                <Sheet>
+                    <SheetTrigger>
+                        <span className={style.trigger}>
+                            <IoMenu />
+                        </span>
+                    </SheetTrigger>
+                    <SheetContent className='bg-[#010626]'>
+                        <SheetHeader>
+                            <SheetTitle className='mt-4'>
+                                <Logo />
+                            </SheetTitle>
+                            <SheetDescription>
+                                Menu
+                            </SheetDescription>
+                                <Nav />
+                        </SheetHeader>
+                    </SheetContent>
+                </Sheet>
+            </div>
+        </>
+    )
 }
 
 export default Header

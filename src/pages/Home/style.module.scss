@@ -19,6 +19,10 @@
             font-family: "Jockey One", sans-serif;
             color:white;
             gap: 1.444rem;
+
+            button {
+                font-family: "Barlow", sans-serif;
+            }
         }
     }
 
@@ -128,10 +132,53 @@
 
     .trends, .top_rated {
         padding: 3rem;
+        
         h2 {
             font-family: "Jockey One", sans-serif;
             font-size: 2rem;
             margin-bottom: 2rem;
             color: white;
         }
+    }
+
+    .social {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap:1rem;
+        flex-wrap: wrap;
+        margin: 8rem 0;
+
+        h3 {
+            font-family: "Jockey One", sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .checklist, .connect, .discover {
+            max-width: 300px;            
+            width: 20%;
+            height: 300px;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 0;
+        }
+        .checklist{
+            background-color: cadetblue;
+        }
+        .connect{
+            background-color: darkorange;
+        }
+        .discover{
+            background-color: hotpink;
+        }
+
+        
     }

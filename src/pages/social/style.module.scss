@@ -1,14 +1,22 @@
 @use "@/styles/color" as *;
 
+
 .profile_header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     width: 95%;
+    flex-wrap:wrap;
+
+    &:first-child{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     
     .profile_picture{
         display: flex;
-        flex-direction: row;
         width: 100%;
         justify-content: space-between;
         
@@ -82,14 +90,12 @@
     .profile_data {
         flex-grow: 1;        
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         gap: 2rem;
-        padding-left: 2rem;
-
+        
         .movies_summary{
             display: flex;
-            flex-direction: row;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             width: 100%;
@@ -101,6 +107,8 @@
                 font-size: 1.2rem;
             }
             div {
+                flex: 1 1;
+                max-width: 230px;
                 background-color: $white;
                 padding: 4rem;
                 border-radius: 5px;
@@ -128,6 +136,18 @@
             }
         }
     }
+}
+.movie_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    gap: 2rem;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    background-color: $white;
+    margin-bottom: 1rem;
 }
 .favorites {
     width: 100%;

@@ -123,16 +123,18 @@ export default function Social() {
           <div className={style.favorites}>
             <SearchResultsContainer>
               <Title tag='h2'>Filmes Favoritos</Title>
-              {
-                moviesDetails.map((favoriteMovie) => (
-                  <CardMovieSearch
-                    img_source={favoriteMovie.poster_path}
-                    title={favoriteMovie.title}
-                    key={favoriteMovie.id}
-                    release_date={favoriteMovie.release_date}
-                    id={favoriteMovie.id} />
-                ))
-              }
+              <div className={style.movie_row}>
+                {
+                  moviesDetails.map((favoriteMovie) => (
+                    <CardMovieSearch
+                      img_source={favoriteMovie.poster_path}
+                      title={favoriteMovie.title}
+                      key={favoriteMovie.id}
+                      release_date={favoriteMovie.release_date}
+                      id={favoriteMovie.id} />
+                  ))
+                }
+              </div>
             </SearchResultsContainer>
           </div>
           <div className={style.favorites}>

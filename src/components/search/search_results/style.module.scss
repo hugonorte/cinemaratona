@@ -2,13 +2,13 @@
 
 .container {
     border: solid 1px $blue;
-    margin:2rem 2rem;
     background-color: rgba(255, 255, 255, .9);
     border-radius: 5px;
     padding: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
      gap: 1rem;
      flex-wrap: wrap;
     width: 90%;

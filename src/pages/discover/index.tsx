@@ -105,7 +105,7 @@ export default function Discover() {
           ) :
           (
             <SearchResultsContainer>
-              <Title tag="h2">
+              <Title tag="h4">
                 Resultados da busca por do gênero {genres?.find(genre => genre.id === selectedGenreId)?.name} e streaming  {streamingProviders?.find(provider => provider.provider_id === selectedProviderId)?.provider_name}
               </Title>
               {movies.map((movie) => (

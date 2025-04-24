@@ -23,8 +23,10 @@ const Login = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userData), 
-      });
-
+        
+      }
+    );
+      console.log("teste", userData);
       const data = await response.json(); 
 
 

@@ -22,19 +22,21 @@ const Signup = () => {
     
 
     const userData = {
-      name,
-      email,
-      password,
+      UserName: name,
+      Email: email,
+      Password: password,
     };
+    
 
     try {
-      const response = await fetch("URL_DA_API/signup", {
+      const response = await fetch("http://localhost:5199/api/user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
+      console.log(userData);
 
       const data = await response.json();
 

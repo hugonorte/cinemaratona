@@ -4,6 +4,7 @@ import BaseLayout from '../../components/layout'
 import Title from '../../components/title'
 import style from './style.module.scss'
 import { useFavoritesStore } from '../../store/useFavoritesStore'
+import { usePendingMoviesToWatchStore } from '../../store/usePendingMovies'
 import SearchResultsContainer from '../../components/search/search_results'
 import CardMovieSearch from '../../components/card/movie/search'
 import { BiCameraMovie } from "react-icons/bi";
@@ -20,7 +21,8 @@ export default function Social() {
     favorite_movies: [1125899, 1165067, 822119, 777443, 1356039],
     recommended_movies: [13, 550, 245891, 79, 77],
     watched_movies: 252,
-    movies_to_watch: 43,
+    movies_to_watch: 4,
+    pending_movies: [13223, 124905, 823219, 3049],
     followers: 123,
     following: 123,
     member_since: '2021-01-01',
@@ -28,14 +30,17 @@ export default function Social() {
   }
 
   const { moviesDetails, fetchFavoritesDetails, isLoading } = useFavoritesStore();
+  const { pendingMoviesToWatchDetails, fetchPendingMoviesToWatchDetails } = usePendingMoviesToWatchStore();
   const hasFetched = useRef(false);
 
   useEffect(() => {
     if (!hasFetched.current) {
       fetchFavoritesDetails(user.favorite_movies);
+      fetchPendingMoviesToWatchDetails(user.pending_movies);
       hasFetched.current = true;
     }
-  }, [fetchFavoritesDetails, user.favorite_movies]);
+  }, [fetchFavoritesDetails, user.favorite_movies, fetchPendingMoviesToWatchDetails, user.pending_movies]);
+
 
   if (!moviesDetails) {
       return <Loading />;
@@ -97,7 +102,7 @@ export default function Social() {
                       <Title tag='h3'>
                         Filmes Avaliados: 
                       </Title>
-                      <p>Ver todos</p>
+                      {/* <p>Ver todos</p> */}
                     </div>
                     <div>
                       <span>{user.watched_movies}</span>
@@ -105,7 +110,7 @@ export default function Social() {
                       <Title tag='h3'>
                         Filmes Assistidos: 
                       </Title>
-                      <p>Ver todos</p>
+                      {/* <p>Ver todos</p> */}
                     </div>
                     <div>
                       <span>{user.movies_to_watch}</span>
@@ -113,7 +118,7 @@ export default function Social() {
                       <Title tag='h3'>
                         Filmes para assistir: 
                       </Title>
-                      <p>Ver todos</p>
+                      {/* <p>Ver todos</p> */}
                     </div>
                   </div>
                 </div>
@@ -152,6 +157,22 @@ export default function Social() {
               }
             </SearchResultsContainer>
           </div>
+          <div className={style.favorites}>
+            <SearchResultsContainer>
+              <Title tag='h2'>Filmes Para Assistir</Title>
+              {
+                pendingMoviesToWatchDetails.map((pendingMovie) => (
+                  <CardMovieSearch
+                    img_source={pendingMovie.poster_path}
+                    title={pendingMovie.title}
+                    key={pendingMovie.id}
+                    release_date={pendingMovie.release_date}
+                    id={pendingMovie.id} />
+                ))
+              }
+            </SearchResultsContainer>
+          </div>
+          
         </Main>
       </BaseLayout>
     </>

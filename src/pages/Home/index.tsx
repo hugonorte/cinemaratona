@@ -10,6 +10,7 @@ import ButtonPrimary from '../../components/button/primary'
 import { VscChecklist } from "react-icons/vsc";
 import { FaPeopleLine } from "react-icons/fa6";
 import { MdMovieFilter } from "react-icons/md";
+import { Link } from 'react-router'
 
 
 export default function Home() {
@@ -28,7 +29,10 @@ export default function Home() {
             <section className={style.header}>
                 <div className={style.title}>
                   Encontre o seu próximo filme favorito em poucos cliques!
-                  <ButtonPrimary label='Cadastre-se' type='button' />
+                  
+                  <Link to='/register'>
+                    <ButtonPrimary label='Cadastre-se' type='button' />
+                  </Link>
                 </div>
             </section>
             <section className={style.trends}>

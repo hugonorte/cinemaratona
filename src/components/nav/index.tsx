@@ -29,7 +29,9 @@ export default function nav() {
                     </li>
                 </ul>
                 <div className={style.buttons}>
-                    <ButtonPrimary type="button" label="Login" />
+                    <Link to='/login'>
+                        <ButtonPrimary type="button" label="Login" />
+                    </Link>
                 </div>
             </nav>
         </div>

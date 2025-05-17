@@ -11,6 +11,8 @@ import Social from './pages/social/index.tsx';
 import Design from './pages/design/index.tsx';
 import Profile from './pages/profile/index.tsx';
 import Friends from './pages/friends/index.tsx';
+import Login from './pages/login/index.tsx';
+import Register from './pages/register/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -25,6 +27,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/social" element={<Social />} />
         <Route path="/design" element={<Design />} />
         <Route path="/friends" element={<Friends />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/profile/edit" element={<Profile />} />
       </Routes>
     </BrowserRouter>

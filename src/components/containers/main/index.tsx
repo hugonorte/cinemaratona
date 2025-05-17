@@ -6,7 +6,7 @@ interface MainProps {
 
 export default function Main({ children }: MainProps) {
   return (
-    <div className={style.container}>
+    <div className={style.main_container}>
         {children}
     </div>
   )

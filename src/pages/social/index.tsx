@@ -12,7 +12,12 @@ import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { Link } from 'react-router'
 import Loading from '../../components/loading'
 
+//import {useCreateUserStore} from '@/store/users/useCurrentUser'
+
 export default function Social() {
+
+  //const testuser = useCreateUserStore((state) => state.user);
+  //console.log(testuser)
 
   const user = {
     name: 'Silvio Santos',

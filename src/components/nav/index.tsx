@@ -31,18 +31,20 @@ export default function Nav() {
                             Discover
                         </Link>
                     </li>
-                    <li>
-                        <Link to={`/social`}>
-                            Social
-                        </Link>
-                    </li>
                     {
                         user ? (
-                            <li>
-                               <span onClick={ loggingOut }>
-                                   Logout
-                               </span> 
-                            </li>
+                            <>
+                                <li>
+                                    <Link to={`/social`}>
+                                        Social
+                                    </Link>
+                                </li>
+                                <li>
+                                <span onClick={ loggingOut }>
+                                    Logout
+                                </span> 
+                                </li>
+                            </>
                         ) : (
                             <div className={style.buttons}>
                                 <Link to='/login'>

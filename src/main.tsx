@@ -13,10 +13,14 @@ import Profile from './pages/profile/index.tsx';
 import Friends from './pages/friends/index.tsx';
 import Login from './pages/login/index.tsx';
 import Register from './pages/register/index.tsx';
+import { ProtectedRoute } from './services/ProtectedRoute.tsx';
+import { AuthInitializer } from './services/AuthInitializer.tsx';
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
+    <AuthInitializer>
       <Routes>
         {/* <Route path="/" element={<App />} /> */}
         <Route path="/" element={<Home />} />
@@ -24,13 +28,17 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/movie/:id" element={<Movie />} />
         <Route path="/filmes" element={<MovieSearch />} />
         <Route path="/discover" element={<Discover />} />
-        <Route path="/social" element={<Social />} />
         <Route path="/design" element={<Design />} />
         <Route path="/friends" element={<Friends />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile/edit" element={<Profile />} />
+        {/* Rotas protegidas */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/social" element={<Social />} />
+        </Route>
       </Routes>
+    </AuthInitializer>
     </BrowserRouter>
   </StrictMode>,
 )

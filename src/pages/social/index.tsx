@@ -12,10 +12,22 @@ import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { Link } from 'react-router'
 import Loading from '../../components/loading'
 
+import {useCurrentUserStore} from '@/store/users/useCurrentUser'
+
+import { useAuthStore } from '@/store/useAuthStore'
+
+
+
 export default function Social() {
 
+  const { currentUser, getCurrentUser } = useCurrentUserStore();
+
+  useEffect(() => {
+    if (!currentUser) getCurrentUser();
+  }, []);
+
   const user = {
-    name: 'Silvio Santos',
+    name: currentUser?.name,
     email: 'silvio@sbt.com.br',
     reviews: 4,
     favorite_movies: [1125899, 1165067, 822119, 777443, 1356039],
@@ -42,7 +54,7 @@ export default function Social() {
   }, [fetchFavoritesDetails, user.favorite_movies, fetchPendingMoviesToWatchDetails, user.pending_movies]);
 
 
-  if (!moviesDetails) {
+  if (!moviesDetails || !currentUser) {
       return <Loading />;
   }
   return (

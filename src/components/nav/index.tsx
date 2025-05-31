@@ -1,8 +1,17 @@
-import { Link } from 'react-router'
+import { Link, Navigate } from 'react-router'
 import style from './style.module.scss'
 import ButtonPrimary from '../button/primary'
+import { useAuthStore } from '@/store/useAuthStore.ts';
+import { logout } from '@/services/logout'
 
-export default function nav() {
+export default function Nav() {
+
+    const user = useAuthStore((state) => state.user);
+    const loggingOut = () => {
+        logout();
+        return <Navigate to="/" replace />;
+    }
+
     return (
         <div className={style.nav_container}>
             <nav>
@@ -18,21 +27,33 @@ export default function nav() {
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/social`}>
-                            Social
-                        </Link>
-                    </li>
-                    <li>
                         <Link to={`/discover`}>
                             Discover
                         </Link>
                     </li>
+                    {
+                        user ? (
+                            <>
+                                <li>
+                                    <Link to={`/social`}>
+                                        Social
+                                    </Link>
+                                </li>
+                                <li>
+                                <span onClick={ loggingOut }>
+                                    Logout
+                                </span> 
+                                </li>
+                            </>
+                        ) : (
+                            <div className={style.buttons}>
+                                <Link to='/login'>
+                                    <ButtonPrimary type="button" label="Login" />
+                                </Link>
+                            </div>
+                        )
+                    }
                 </ul>
-                <div className={style.buttons}>
-                    <Link to='/login'>
-                        <ButtonPrimary type="button" label="Login" />
-                    </Link>
-                </div>
             </nav>
         </div>
     )

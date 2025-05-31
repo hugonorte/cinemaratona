@@ -1,9 +1,12 @@
 import { create } from 'zustand';
 import { loginUser } from '@/api/loginAPI';
 import { jwtDecode } from 'jwt-decode';
+import { getCurrentUserApi } from '@/api/currentUserApi';
 
 interface User {
   id: string;
+  name?: string;
+  email?: string;
 }
 
 interface DecodedToken {
@@ -17,6 +20,7 @@ interface AuthState {
   login: (email: string, password: string) => Promise<User>;
   restoreUser: () => void;
   isHydrating: boolean;
+  currentUser: () => Promise<void>;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -58,4 +62,14 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
   },
   isHydrating: true,
+  currentUser: async () => {
+    try{
+      const meUser = await getCurrentUserApi();
+      set({ user: meUser });
+    } catch (error) {
+      console.error('Error fetching current user:', error);
+      set({ user: null });
+    }
+  }
 }));
+    

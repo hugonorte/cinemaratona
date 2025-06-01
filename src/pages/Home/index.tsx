@@ -1,12 +1,12 @@
-import BaseLayout from '../../components/layout'
-import Title from '../../components/title'
+import BaseLayout from '@/components/layout'
+import Title from '@/components/title'
 import style from './style.module.scss'
 import { usePopularMovieStore } from '../../store/usePopularMovieStore'
 import { useTopRatedMovieStore } from '../../store/useTopRatedMovieStore'
-import SearchResultsContainer from '../../components/search/search_results';
+import SearchResultsContainer from '@/components/search/search_results';
 import { useEffect } from 'react';
-import CardMovieSearch from '../../components/card/movie/search';
-import ButtonPrimary from '../../components/button/primary'
+import CardMovieSearch from '@/components/card/movie/search';
+import ButtonPrimary from '@/components/button/primary'
 import { VscChecklist } from "react-icons/vsc";
 import { FaPeopleLine } from "react-icons/fa6";
 import { MdMovieFilter } from "react-icons/md";

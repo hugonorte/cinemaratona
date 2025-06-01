@@ -1,5 +1,5 @@
 import style from './style.module.scss'
-import Logo from '../../components/logo'
+import Logo from '@/components/logo'
 import ButtonPrimary from '@/components/button/primary'
 import { z  } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';

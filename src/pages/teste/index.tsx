@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMovieStore } from "../../store/useMovieStore";
-import ButtonPrimary from "../../components/button/primary";
-import Header from "../../components/header";
+import ButtonPrimary from "@/components/button/primary";
+import Header from "@/components/header";
 
 
 

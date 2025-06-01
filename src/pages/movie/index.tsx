@@ -5,14 +5,14 @@ import { useMovieDetailsStore } from "../../store/useMovieDetailsStore";
 import { useMoviePostersStore } from "../../store/useMoviePostersStore";
 import { useCastStore } from "../../store/useCastStore";
 import { useBrProviderStore } from "../../store/useBrProvidersStore";
-import BaseLayout from "../../components/layout";
-import Title from "../../components/title";
-import SearchResultsContainer from "../../components/search/search_results";
-import AverageRating from "../../components/avg_rating";
+import BaseLayout from "@/components/layout";
+import Title from "@/components/title";
+import SearchResultsContainer from "@/components/search/search_results";
+import AverageRating from "@/components/avg_rating";
 import avatarNotFound from "../../assets/img/avatar_not_found.svg";
-import WatchedBtn from "../../components/button/watched";
-import AddToListBtn from "../../components/button/addToList";
-import RecommendBtn from "../../components/button/recommend";
+import WatchedBtn from "@/components/button/watched";
+import AddToListBtn from "@/components/button/addToList";
+import RecommendBtn from "@/components/button/recommend";
 import netflix from "../../assets/img/streamings/netflix.svg";
 import disney_plus from "../../assets/img/streamings/disney.svg";
 import amazon from "../../assets/img/streamings/amazon.svg";
@@ -20,7 +20,7 @@ import globoplay from "../../assets/img/streamings/globoplay.svg";
 import max from "../../assets/img/streamings/max.svg";
 import paramount from "../../assets/img/streamings/paramount.svg";
 import apple from "../../assets/img/streamings/apple.svg";
-import Loading from "../../components/loading";
+import Loading from "@/components/loading";
 import FavoriteBtn from "@/components/button/addTofavorite";
 import EvaluateBadge from "@/components/evaluate";
 import {
@@ -89,10 +89,10 @@ export default function Movie() {
                                             <DialogTrigger>
                                                 <EvaluateBadge />
                                             </DialogTrigger>
-                                            <DialogContent className="bg-white h-1/3">
+                                            <DialogContent className="bg-white h-1/3" aria-describedby={undefined}>
                                                 <DialogHeader>
                                                 <DialogTitle>Dê a sua nota para esse filme</DialogTitle>
-                                                <DialogDescription>
+                                                <DialogDescription asChild>
                                                     <RankingMovieModal />
                                                 </DialogDescription>
                                                 </DialogHeader>

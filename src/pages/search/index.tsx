@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Title from "../../components/title";
-import BaseLayout from "../../components/layout";
-import Search from "../../components/search/input";
-import SearchResultsContainer from "../../components/search/search_results";
-import CardMovieSearch from "../../components/card/movie/search";
+import Title from "@/components/title";
+import BaseLayout from "@/components/layout";
+import Search from "@/components/search/input";
+import SearchResultsContainer from "@/components/search/search_results";
+import CardMovieSearch from "@/components/card/movie/search";
 import style from "./style.module.scss";
 import { useMovieStore } from "../../store/useMovieStore";
 

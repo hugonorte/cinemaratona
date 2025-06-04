@@ -5,6 +5,8 @@ import { z  } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useCreateUserStore } from '@/store/users/useCreateUser';
 import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 const createUserSchema = z.object({
     name: z.string().min(2, { message: "Nome é obrigatório" }),
@@ -25,6 +27,14 @@ export default function Register() {
     });
 
     const registerUser = useCreateUserStore((state) => state.register);
+    const userCreatedSuccessfully = useCreateUserStore((state) => state.userCreatedSuccessfully);
+    const navigate = useNavigate();
+
+   useEffect(() => {
+    if (userCreatedSuccessfully) {
+      navigate('/login');
+    }
+  }, [userCreatedSuccessfully, navigate]);
 
     function HandleCreateUser(data: CreateUserSchema) {
          registerUser(data.name, data.email, data.password);

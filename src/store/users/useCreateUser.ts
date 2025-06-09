@@ -22,7 +22,7 @@ export const useCreateUserStore = create<createUserProps>((set) => ({
     register: async (name: string, email: string, password: string) => {
         try {
             const user = await createUserAPI(name, email, password);
-            set({ user });
+            set({ user, userCreatedSuccessfully: true }); 
         } catch (error) {
             console.error('Error creating user:', error);
             throw error;

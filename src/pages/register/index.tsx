@@ -1,7 +1,7 @@
 import style from './style.module.scss'
 import Logo from '@/components/logo'
 import ButtonPrimary from '@/components/button/primary'
-import { z  } from "zod";
+import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useCreateUserStore } from '@/store/users/useCreateUser';
 import { useForm } from 'react-hook-form';
@@ -28,13 +28,15 @@ export default function Register() {
 
     const registerUser = useCreateUserStore((state) => state.register);
     const userCreatedSuccessfully = useCreateUserStore((state) => state.userCreatedSuccessfully);
+    const resetUserCreated = useCreateUserStore((state) => state.resetUserCreated);
     const navigate = useNavigate();
 
    useEffect(() => {
     if (userCreatedSuccessfully) {
       navigate('/login');
+      resetUserCreated();
     }
-  }, [userCreatedSuccessfully, navigate]);
+  }, [userCreatedSuccessfully, navigate, resetUserCreated]);
 
     function HandleCreateUser(data: CreateUserSchema) {
          registerUser(data.name, data.email, data.password);

@@ -15,7 +15,7 @@ const createUserSchema = z.object({
     confirm_password: z.string().min(6, { message: "Confirmação de senha é obrigatória" }),
 }).refine((data) => data.password === data.confirm_password, {
   message: "As senhas não coincidem",
-  path: ["confirm_password"], // <--- associa o erro ao campo
+  path: ["confirm_password"], 
 });
 
 type CreateUserSchema = z.infer<typeof createUserSchema>;
@@ -28,15 +28,13 @@ export default function Register() {
 
     const registerUser = useCreateUserStore((state) => state.register);
     const userCreatedSuccessfully = useCreateUserStore((state) => state.userCreatedSuccessfully);
-    const resetUserCreated = useCreateUserStore((state) => state.resetUserCreated);
     const navigate = useNavigate();
 
    useEffect(() => {
     if (userCreatedSuccessfully) {
       navigate('/login');
-      resetUserCreated();
     }
-  }, [userCreatedSuccessfully, navigate, resetUserCreated]);
+  }, [userCreatedSuccessfully, navigate]);
 
     function HandleCreateUser(data: CreateUserSchema) {
          registerUser(data.name, data.email, data.password);

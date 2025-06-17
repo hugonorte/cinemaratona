@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { useAuthStore } from '@/store/useAuthStore';
 import { Navigate } from "react-router";
 import { useEffect, useState } from 'react';
+import { useCreateUserStore } from '@/store/users/useCreateUser';
 
 const loginUserSchema = z.object({
     email: z.string().email({ message: "Email inválido" }),
@@ -25,12 +26,19 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
     const [authReady, setAuthReady] = useState(false);
 
-    // Simula verificação de sessão/localStorage (ex: carregar user de token)
+    const userCreatedSuccessfully = useCreateUserStore((state) => state.userCreatedSuccessfully);
+    const resetUserCreated = useCreateUserStore((state) => state.resetUserCreated);
+
     useEffect(() => {
-        // Aqui você poderia checar localStorage e validar com a API, por exemplo.
-        // Para simplificação, vamos apenas considerar o estado atual como válido.
         setAuthReady(true);
     }, []);
+
+    useEffect(() => {
+    if (userCreatedSuccessfully) {
+      console.log('Usuário criado com sucesso!');
+      resetUserCreated(); // limpa a flag após exibir
+    }
+  }, [userCreatedSuccessfully, resetUserCreated]);
 
     const handleLoginUser = async (data: LoginUserSchema) => {
         try {

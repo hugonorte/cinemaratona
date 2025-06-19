@@ -1,22 +1,17 @@
 import { useEffect, useRef } from 'react'
-import Main from '../../components/containers/main'
-import BaseLayout from '../../components/layout'
-import Title from '../../components/title'
+import Main from '@/components/containers/main'
+import BaseLayout from '@/components/layout'
+import Title from '@/components/title'
 import style from './style.module.scss'
 import { useFavoritesStore } from '../../store/useFavoritesStore'
 import { usePendingMoviesToWatchStore } from '../../store/usePendingMovies'
-import SearchResultsContainer from '../../components/search/search_results'
-import CardMovieSearch from '../../components/card/movie/search'
+import SearchResultsContainer from '@/components/search/search_results'
+import CardMovieSearch from '@/components/card/movie/search'
 import { BiCameraMovie } from "react-icons/bi";
 import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { Link } from 'react-router'
-import Loading from '../../components/loading'
-
-import {useCurrentUserStore} from '@/store/users/useCurrentUser'
-
-import { useAuthStore } from '@/store/useAuthStore'
-
-
+import Loading from '@/components/loading'
+import { useCurrentUserStore } from '@/store/users/useCurrentUser'
 
 export default function Social() {
 

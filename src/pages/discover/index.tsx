@@ -3,15 +3,15 @@ import { useEffect, useState } from 'react';
 import { useGenresStore } from '../../store/useMovieGenres'
 import { useStreamingProvidersStore } from '../../store/useStreamingProviders'
 import { useMovieByGenreAndStreamingStore } from '../../store/useMovieByGenreAndStreamingStore'
-import BaseLayout from '../../components/layout';
+import BaseLayout from '@/components/layout';
 import style from './style.module.scss'
-import lightButtonStyle from '../../components/button/light/style.module.scss'
-import Title from '../../components/title';
-import Main from '../../components/containers/main';
-import ButtonLight from '../../components/button/light';
+import lightButtonStyle from '@/components/button/light/style.module.scss'
+import Title from '@/components/title';
+import Main from '@/components/containers/main';
+import ButtonLight from '@/components/button/light';
 import { StreamingProviders}  from '../../constants/streaming_providers';
-import CardMovieSearch from '../../components/card/movie/search';
-import SearchResultsContainer from '../../components/search/search_results';
+import CardMovieSearch from '@/components/card/movie/search';
+import SearchResultsContainer from '@/components/search/search_results';
 import netflix from "../../assets/img/streamings/netflix.svg";
 import disney_plus from "../../assets/img/streamings/disney.svg";
 import amazon from "../../assets/img/streamings/amazon.svg";
@@ -19,7 +19,7 @@ import globoplay from "../../assets/img/streamings/globoplay.svg";
 import max from "../../assets/img/streamings/max.svg";
 import paramount from "../../assets/img/streamings/paramount.svg";
 import apple from "../../assets/img/streamings/apple.svg";
-import Loading from "../../components/loading";
+import Loading from "@/components/loading";
 
 export default function Discover() {
 

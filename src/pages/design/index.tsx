@@ -1,7 +1,7 @@
-import Title from '../../components/title'
+import Title from '@/components/title'
 import style from './style.module.scss'
-import Card from '../../components/card/generic'
-import ColorBox from '../../components/colorbox'
+import Card from '@/components/card/generic'
+import ColorBox from '@/components/colorbox'
 
 export default function Design() {
   return (

@@ -1,10 +1,12 @@
 import style from './style.module.scss'
-import Logo from '../../components/logo'
+import Logo from '@/components/logo'
 import ButtonPrimary from '@/components/button/primary'
-import { z  } from "zod";
+import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useCreateUserStore } from '@/store/users/useCreateUser';
 import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 const createUserSchema = z.object({
     name: z.string().min(2, { message: "Nome é obrigatório" }),
@@ -13,7 +15,7 @@ const createUserSchema = z.object({
     confirm_password: z.string().min(6, { message: "Confirmação de senha é obrigatória" }),
 }).refine((data) => data.password === data.confirm_password, {
   message: "As senhas não coincidem",
-  path: ["confirm_password"], // <--- associa o erro ao campo
+  path: ["confirm_password"], 
 });
 
 type CreateUserSchema = z.infer<typeof createUserSchema>;
@@ -25,6 +27,14 @@ export default function Register() {
     });
 
     const registerUser = useCreateUserStore((state) => state.register);
+    const userCreatedSuccessfully = useCreateUserStore((state) => state.userCreatedSuccessfully);
+    const navigate = useNavigate();
+
+   useEffect(() => {
+    if (userCreatedSuccessfully) {
+      navigate('/login');
+    }
+  }, [userCreatedSuccessfully, navigate]);
 
     function HandleCreateUser(data: CreateUserSchema) {
          registerUser(data.name, data.email, data.password);

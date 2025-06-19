@@ -46,7 +46,9 @@ export default function Movie() {
     const day = movieDetails?.release_date.split("-")[2];
     const rating = Math.round((movieDetails?.vote_average ?? 0) * 10) / 10;
     const director = staff?.crew && staff.crew.filter(x => x.job === "Director")[0]?.name || 'Diretor não encontrado';
- 
+    const watched = false;
+    const isFavorite = false;
+    const listed = false; 
 
     useEffect(() => {
         if (id) {
@@ -86,9 +88,9 @@ export default function Movie() {
                             <div className={style.details}>
                                 <div className={style.cover}>
                                     <img src={moviePoster.posters.length > 0 ? `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}` : `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetails.poster_path}`} alt={movieDetails.title} />
-                                    <WatchedBtn />
-                                    <FavoriteBtn />
-                                    <AddToListBtn />
+                                    <WatchedBtn watched={watched}/>
+                                    <FavoriteBtn isFavorite={isFavorite} />
+                                    <AddToListBtn listed={listed} />
                                     <RecommendBtn />
                                 </div>
                                 <div className={style.description}>

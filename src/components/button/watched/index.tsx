@@ -1,15 +1,20 @@
 import { CiCircleCheck } from "react-icons/ci";
 import style from "./style.module.scss";
 
-export default function WatchedBtn() {
+interface WatchedBtnProps {
+  onClick?: () => void;
+  watched: boolean;
+}
+
+export default function WatchedBtn({ onClick, watched }: WatchedBtnProps) {
   return (
     <>
-        <div className={style.container}>
-            <button>
-                <span className={style.icon}>
+        <div className={style.WatchedBtn_container} onClick={onClick}>
+            <button className={watched  ? style.watched : ""}>
+                <span className={`${style.icon} ${watched ? style.watched : ""}`}>
                     <CiCircleCheck />
                 </span>
-                Marcar como assistido
+                 {watched ? "Já assistido" : "Marcar como assistido"}
             </button>
         </div>
     </>

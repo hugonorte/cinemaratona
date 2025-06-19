@@ -1,6 +1,7 @@
 @use "@/styles/color" as *;
-.container {
+.WatchedBtn_container {
     width: 100%;
+
     button {
         min-width: 100%;
         font-family: "Barlow", sans-serif;
@@ -15,6 +16,11 @@
         background-color: $yellow;
         border:none;
         border-radius: 5px;
+
+        &.watched {
+            color:white;
+            background-color: purple;
+        }
     }
     .icon {
         color: purple;
@@ -22,5 +28,11 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        &.watched {
+            color:white;
+        }
     }
+
+    
 }

@@ -1,5 +1,5 @@
 @use "@/styles/color" as *;
-.container {
+.AddToList_container {
     width: 100%;
     button {
         min-width: 100%;
@@ -15,6 +15,11 @@
         background-color: $light_blue;
         border:none;
         border-radius: 5px;
+
+        &.listed {
+            color:$white;
+            background-color: $listed;
+        }
     }
     .icon {
         color: $white;
@@ -22,5 +27,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        &.listed {
+            color:$white;
+        }
     }
 }

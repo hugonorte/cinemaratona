@@ -3,7 +3,7 @@ import style from "./style.module.scss";
 
 interface WatchedBtnProps {
   onClick?: () => void;
-  watched: boolean;
+  watched: boolean | null;
 }
 
 export default function WatchedBtn({ onClick, watched }: WatchedBtnProps) {

@@ -10,7 +10,12 @@ import { useAuthStore } from '@/store/useAuthStore';
 import { useReviewStore } from '@/store/useReviewStore'
 import { useNavigate } from 'react-router';
 
-export default function RatingMovieModal() {
+
+type RatingMovieModalProps = {
+  onSuccess: () => void;
+};
+
+export default function RatingMovieModal({ onSuccess }: RatingMovieModalProps) {
   const [rating, setRating] = useState<number | null>(null);
   const { currentUser } = useCurrentUserStore();
   const selectedMovie = useSelectedMovieStore((state) => state.getSelectedMovie());
@@ -54,6 +59,7 @@ export default function RatingMovieModal() {
       release_date: selectedMovie?.releaseDate ?? '',
       poster: selectedMovie?.posterPath ?? ''
     });
+    onSuccess();
   }
 
   useEffect(() => {

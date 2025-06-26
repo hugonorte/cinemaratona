@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import style from "./style.module.scss";
 import { useParams } from "react-router";
 import { useMovieDetailsStore } from "../../store/useMovieDetailsStore";
 import { useMoviePostersStore } from "../../store/useMoviePostersStore";
 import { useSelectedMovieStore } from "@/store/useSelectedMovie";
 import { useCastStore } from "../../store/useCastStore";
+import { useCheckUserWatchedMovie } from  "@/store/movie/watched/useCheckUserWatchedMovie";
 import { useBrProviderStore } from "../../store/useBrProvidersStore";
 import BaseLayout from "@/components/layout";
 import Title from "@/components/title";
@@ -24,6 +25,9 @@ import apple from "../../assets/img/streamings/apple.svg";
 import Loading from "@/components/loading";
 import FavoriteBtn from "@/components/button/addTofavorite";
 import EvaluateBadge from "@/components/evaluate";
+import { useAuthStore } from '@/store/useAuthStore';
+import { useMarkMovieAsWatched } from "@/store/movie/watched/useMarkMovieAsWatched";
+
 import {
     Dialog,
     DialogContent,
@@ -38,7 +42,7 @@ export default function Movie() {
     const { id } = useParams<{ id: string }>();
     const { movieDetails, fetchMovieDetails, isLoading } = useMovieDetailsStore();
     const { moviePoster, fetchMoviePosters } = useMoviePostersStore();
-    const { setSelectedMovie, clearSelectedMovie } = useSelectedMovieStore();
+    const { setSelectedMovie, clearSelectedMovie, movie } = useSelectedMovieStore();
     const { staff, fetchCast } = useCastStore();
     const { brProvider, fetchBrProvider } = useBrProviderStore();
     const year = movieDetails?.release_date.split("-")[0];
@@ -46,9 +50,28 @@ export default function Movie() {
     const day = movieDetails?.release_date.split("-")[2];
     const rating = Math.round((movieDetails?.vote_average ?? 0) * 10) / 10;
     const director = staff?.crew && staff.crew.filter(x => x.job === "Director")[0]?.name || 'Diretor não encontrado';
-    const watched = false;
     const isFavorite = false;
     const listed = false; 
+    const [open, setOpen] = useState(false);
+    const userId = useAuthStore().user?.id
+    const { isWatched, fetchIsWatched } = useCheckUserWatchedMovie();
+    const { markMovieAsWatched } = useMarkMovieAsWatched();
+    const { accessToken }  = useAuthStore();
+
+    const handleAddToWatched = () => {
+        if (movieDetails && userId) {
+            markMovieAsWatched(
+                Number(userId),
+                Number(movie?.id),
+                movieDetails.title,
+                movieDetails.release_date,
+                movieDetails.poster_path ?? "",
+                accessToken ?? ""
+            ).then(() => {
+                fetchIsWatched(Number(userId), Number(movie?.id));
+            });
+        }
+    };
 
     useEffect(() => {
         if (id) {
@@ -57,6 +80,10 @@ export default function Movie() {
             fetchMoviePosters(Number(id));
             fetchCast(Number(id));
             fetchBrProvider(Number(id));
+            if (userId && movie?.id) {
+                fetchIsWatched(Number(userId), Number(movie?.id));
+            }
+            fetchIsWatched(Number(userId), Number(movie?.id));
             setSelectedMovie({
                 id: Number(id),
                 title: movieDetails?.title ?? "",
@@ -64,7 +91,22 @@ export default function Movie() {
                 posterPath: movieDetails?.poster_path ?? ""
             });
         }
-    }, [id, clearSelectedMovie, fetchMovieDetails, fetchMoviePosters, fetchCast, fetchBrProvider, setSelectedMovie, movieDetails?.title, movieDetails?.release_date, movieDetails?.poster_path]);
+    }, [
+        id, 
+        clearSelectedMovie, 
+        fetchMovieDetails, 
+        fetchMoviePosters, 
+        fetchCast, 
+        fetchBrProvider, 
+        setSelectedMovie, 
+        fetchIsWatched,
+        isWatched,
+        movieDetails?.title, 
+        movieDetails?.release_date, 
+        movieDetails?.poster_path,
+        movie?.id,
+        userId
+    ]);
 
     if (!movieDetails) {
         return <Loading />;
@@ -88,7 +130,7 @@ export default function Movie() {
                             <div className={style.details}>
                                 <div className={style.cover}>
                                     <img src={moviePoster.posters.length > 0 ? `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}` : `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetails.poster_path}`} alt={movieDetails.title} />
-                                    <WatchedBtn watched={watched}/>
+                                    <WatchedBtn watched={isWatched} onClick={handleAddToWatched}/>
                                     <FavoriteBtn isFavorite={isFavorite} />
                                     <AddToListBtn listed={listed} />
                                     <RecommendBtn />
@@ -97,15 +139,15 @@ export default function Movie() {
                                     <strong>Nota Média:</strong>
                                     <AverageRating rating={rating} />
                                     <div>
-                                        <Dialog>
-                                            <DialogTrigger>
-                                                <EvaluateBadge />
+                                        <Dialog open={open} onOpenChange={setOpen}>
+                                            <DialogTrigger asChild>
+                                                <EvaluateBadge onClick={() => setOpen(true)} />
                                             </DialogTrigger>
                                             <DialogContent className="bg-white h-1/3" aria-describedby={undefined}>
                                                 <DialogHeader>
                                                     <DialogTitle>Dê a sua nota para esse filme</DialogTitle>
                                                     <DialogDescription asChild>
-                                                        <RatingMovieModal />
+                                                        <RatingMovieModal onSuccess={() => setOpen(false)} />
                                                     </DialogDescription>
                                                 </DialogHeader>
                                             </DialogContent>

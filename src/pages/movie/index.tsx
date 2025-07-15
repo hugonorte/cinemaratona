@@ -132,7 +132,7 @@ export default function Movie() {
                                     <img src={moviePoster.posters.length > 0 ? `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}` : `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetails.poster_path}`} alt={movieDetails.title} />
                                     <WatchedBtn watched={isWatched} onClick={handleAddToWatched}/>
                                     <FavoriteBtn isFavorite={isFavorite} />
-                                    <AddToListBtn listed={listed} />
+                                    {!isWatched ? (<AddToListBtn listed={listed} />) : ""}
                                     <RecommendBtn />
                                 </div>
                                 <div className={style.description}>

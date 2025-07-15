@@ -3,8 +3,8 @@ import Main from '@/components/containers/main'
 import BaseLayout from '@/components/layout'
 import Title from '@/components/title'
 import style from './style.module.scss'
-import { useFavoritesStore } from '../../store/useFavoritesStore'
-import { usePendingMoviesToWatchStore } from '../../store/usePendingMovies'
+import { useFavoritesStore } from '@/store/useFavoritesStore'
+import { usePendingMoviesToWatchStore } from '@/store/usePendingMovies'
 import SearchResultsContainer from '@/components/search/search_results'
 import CardMovieSearch from '@/components/card/movie/search'
 import { BiCameraMovie } from "react-icons/bi";
@@ -13,6 +13,7 @@ import { Link } from 'react-router'
 import Loading from '@/components/loading'
 import { useCurrentUserStore } from '@/store/users/useCurrentUser'
 import { useGetAllMoviesWatched } from '@/store/movie/watched/useWatched'
+import { useGetTotalReviewsFromAUser } from '@/store/review/useGetTotalReviewsFromAUser'
 
 export default function Social() {
 
@@ -22,15 +23,17 @@ export default function Social() {
     totalMoviesWatchedByUser,
     fetchAllMoviesWatchedByUser,
   } = useGetAllMoviesWatched();
+  const {totalReviewsFromUser, fetchTotalReviewsFromUser} = useGetTotalReviewsFromAUser();
  /*  const [ moviesWatched, setMoviesWatched ] = getAllMoviesWatched([]);
   const [ totalMoviesWatched, setTotalMoviesWatched ] = getAllMoviesWatched(0); */
-console.log(totalMoviesWatchedByUser)
+//console.log(totalReviewsFromUser)
   useEffect(() => {
     if (!currentUser) getCurrentUser();
     if (currentUser?.id){
       fetchAllMoviesWatchedByUser(Number(currentUser?.id));
+      fetchTotalReviewsFromUser(Number(currentUser?.id));
     }
-  }, [currentUser, getCurrentUser, fetchAllMoviesWatchedByUser]);
+  }, [currentUser, getCurrentUser, fetchAllMoviesWatchedByUser, fetchTotalReviewsFromUser]);
 
   const user = {
     name: currentUser?.name,
@@ -115,7 +118,7 @@ console.log(totalMoviesWatchedByUser)
                   </Title> */}
                   <div className={style.movies_summary}>
                     <div>
-                      <span>{user.reviews}</span>
+                      <span>{totalReviewsFromUser?.total}</span>
                       <BiCameraMovie />
                       <Title tag='h3'>
                         Filmes Avaliados: 

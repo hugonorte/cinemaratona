@@ -12,14 +12,25 @@ import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { Link } from 'react-router'
 import Loading from '@/components/loading'
 import { useCurrentUserStore } from '@/store/users/useCurrentUser'
+import { useGetAllMoviesWatched } from '@/store/movie/watched/useWatched'
 
 export default function Social() {
 
   const { currentUser, getCurrentUser } = useCurrentUserStore();
-
+  const {
+    moviesWatchedByUser,
+    totalMoviesWatchedByUser,
+    fetchAllMoviesWatchedByUser,
+  } = useGetAllMoviesWatched();
+ /*  const [ moviesWatched, setMoviesWatched ] = getAllMoviesWatched([]);
+  const [ totalMoviesWatched, setTotalMoviesWatched ] = getAllMoviesWatched(0); */
+console.log(totalMoviesWatchedByUser)
   useEffect(() => {
     if (!currentUser) getCurrentUser();
-  }, []);
+    if (currentUser?.id){
+      fetchAllMoviesWatchedByUser(Number(currentUser?.id));
+    }
+  }, [currentUser, getCurrentUser, fetchAllMoviesWatchedByUser]);
 
   const user = {
     name: currentUser?.name,
@@ -112,7 +123,7 @@ export default function Social() {
                       {/* <p>Ver todos</p> */}
                     </div>
                     <div>
-                      <span>{user.watched_movies}</span>
+                      <span>{totalMoviesWatchedByUser}</span>
                       <BiCameraMovie />
                       <Title tag='h3'>
                         Filmes Assistidos: 
@@ -175,6 +186,21 @@ export default function Social() {
                     key={pendingMovie.id}
                     release_date={pendingMovie.release_date}
                     id={pendingMovie.id} />
+                ))
+              }
+            </SearchResultsContainer>
+          </div>
+          <div className={style.favorites}>
+            <SearchResultsContainer>
+              <Title tag='h2'>Filmes Já Assistidos</Title>
+              {
+                moviesWatchedByUser?.map((watchedMovie) => (
+                  <CardMovieSearch
+                    img_source={watchedMovie.poster}
+                    title={watchedMovie.title}
+                    key={watchedMovie.id}
+                    release_date={watchedMovie.release_date}
+                    id={watchedMovie.movie_id_from_api} />
                 ))
               }
             </SearchResultsContainer>

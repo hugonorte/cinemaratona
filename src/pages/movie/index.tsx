@@ -123,10 +123,6 @@ export default function Movie() {
         return <Loading />;
     }
 
-    const handleSalvar = () => {
-        addToast("success", "Salvo com sucesso!");
-    };
-
     return (
         <BaseLayout>
             <div className={style.container}>
@@ -136,9 +132,6 @@ export default function Movie() {
                     ) : (
 
                         <SearchResultsContainer>
-                            <button onClick={handleSalvar}>
-                                Toast Success
-                            </button>
                             <Title tag="h1">
                                 {movieDetails.title} ({year})
                             </Title>

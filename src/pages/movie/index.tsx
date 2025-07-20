@@ -27,6 +27,8 @@ import FavoriteBtn from "@/components/button/addTofavorite";
 import EvaluateBadge from "@/components/evaluate";
 import { useAuthStore } from '@/store/useAuthStore';
 import { useMarkMovieAsWatched } from "@/store/movie/watched/useMarkMovieAsWatched";
+//import SuccessToast from "@/components/toasts/success";
+import { useToastStore } from "@/store/toast/toastStore";
 
 import {
     Dialog,
@@ -57,6 +59,12 @@ export default function Movie() {
     const { isWatched, fetchIsWatched } = useCheckUserWatchedMovie();
     const { markMovieAsWatched } = useMarkMovieAsWatched();
     const { accessToken }  = useAuthStore();
+    //const [showToast, setShowToast] = useState(false);
+    const { addToast } = useToastStore();
+
+    /* const handleToast = async () => {
+        setShowToast(true);
+    }; */
 
     const handleAddToWatched = () => {
         if (movieDetails && userId) {
@@ -115,6 +123,10 @@ export default function Movie() {
         return <Loading />;
     }
 
+    const handleSalvar = () => {
+        addToast("success", "Salvo com sucesso!");
+    };
+
     return (
         <BaseLayout>
             <div className={style.container}>
@@ -124,6 +136,9 @@ export default function Movie() {
                     ) : (
 
                         <SearchResultsContainer>
+                            <button onClick={handleSalvar}>
+                                Toast Success
+                            </button>
                             <Title tag="h1">
                                 {movieDetails.title} ({year})
                             </Title>
@@ -220,12 +235,11 @@ export default function Movie() {
                                                 </div>
                                             )
                                             : ""
-
                                     ))}
                                 </div>
                             </div>
+                            {/* <SuccessToast message="Valeu! Sua avaliação foi salva com sucesso!" /> */}
                         </SearchResultsContainer>
-
                     )
                 }
             </div>

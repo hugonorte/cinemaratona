@@ -35,7 +35,6 @@ export default function Login() {
 
     useEffect(() => {
     if (userCreatedSuccessfully) {
-      console.log('Usuário criado com sucesso!');
       resetUserCreated(); // limpa a flag após exibir
     }
   }, [userCreatedSuccessfully, resetUserCreated]);

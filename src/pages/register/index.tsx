@@ -7,6 +7,8 @@ import { useCreateUserStore } from '@/store/users/useCreateUser';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import { useToastStore } from "@/store/toast/toastStore";
+
 
 const createUserSchema = z.object({
     name: z.string().min(2, { message: "Nome é obrigatório" }),
@@ -14,18 +16,17 @@ const createUserSchema = z.object({
     password: z.string().min(6, { message: "Senha deve ter pelo menos 6 caracteres" }),
     confirm_password: z.string().min(6, { message: "Confirmação de senha é obrigatória" }),
 }).refine((data) => data.password === data.confirm_password, {
-  message: "As senhas não coincidem",
-  path: ["confirm_password"], 
+    message: "As senhas não coincidem",
+    path: ["confirm_password"], 
 });
 
 type CreateUserSchema = z.infer<typeof createUserSchema>;
 
 export default function Register() {
-
+    const { addToast } = useToastStore();
     const { register, handleSubmit, formState: { errors }  } = useForm<CreateUserSchema>({
         resolver: zodResolver(createUserSchema),
     });
-
     const registerUser = useCreateUserStore((state) => state.register);
     const userCreatedSuccessfully = useCreateUserStore((state) => state.userCreatedSuccessfully);
     const navigate = useNavigate();
@@ -38,6 +39,7 @@ export default function Register() {
 
     function HandleCreateUser(data: CreateUserSchema) {
          registerUser(data.name, data.email, data.password);
+         addToast("success", "Cadastro realizado com sucesso!");
     }
 
     return (

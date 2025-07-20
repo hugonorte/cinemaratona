@@ -6,6 +6,7 @@ import { useMoviePostersStore } from "../../store/useMoviePostersStore";
 import { useSelectedMovieStore } from "@/store/useSelectedMovie";
 import { useCastStore } from "../../store/useCastStore";
 import { useCheckUserWatchedMovie } from  "@/store/movie/watched/useCheckUserWatchedMovie";
+import { useCheckUserAddedInMoviesToWachtList } from  "@/store/movie/toWatch/usecheckUserAddedMovieToList";
 import { useBrProviderStore } from "../../store/useBrProvidersStore";
 import BaseLayout from "@/components/layout";
 import Title from "@/components/title";
@@ -27,7 +28,7 @@ import FavoriteBtn from "@/components/button/addTofavorite";
 import EvaluateBadge from "@/components/evaluate";
 import { useAuthStore } from '@/store/useAuthStore';
 import { useMarkMovieAsWatched } from "@/store/movie/watched/useMarkMovieAsWatched";
-//import SuccessToast from "@/components/toasts/success";
+import { useMarkMovieAsMovieToWatch } from "@/store/movie/toWatch/useMovieToBeWatched";
 import { useToastStore } from "@/store/toast/toastStore";
 
 import {
@@ -53,18 +54,14 @@ export default function Movie() {
     const rating = Math.round((movieDetails?.vote_average ?? 0) * 10) / 10;
     const director = staff?.crew && staff.crew.filter(x => x.job === "Director")[0]?.name || 'Diretor não encontrado';
     const isFavorite = false;
-    const listed = false; 
     const [open, setOpen] = useState(false);
     const userId = useAuthStore().user?.id
     const { isWatched, fetchIsWatched } = useCheckUserWatchedMovie();
+    const { isAddedInMoviesToWachtList, fetchIsAddedInMoviesToWachtList } = useCheckUserAddedInMoviesToWachtList();
     const { markMovieAsWatched } = useMarkMovieAsWatched();
+    const { markMovieAsMovieToBeWatched } = useMarkMovieAsMovieToWatch();
     const { accessToken }  = useAuthStore();
-    //const [showToast, setShowToast] = useState(false);
     const { addToast } = useToastStore();
-
-    /* const handleToast = async () => {
-        setShowToast(true);
-    }; */
 
     const handleAddToWatched = () => {
         if (movieDetails && userId) {
@@ -78,6 +75,25 @@ export default function Movie() {
             ).then(() => {
                 fetchIsWatched(Number(userId), Number(movie?.id));
             });
+        }
+    };
+
+    const handleAddToMovieToWatch = () => {
+        if (movieDetails && userId) {
+            markMovieAsMovieToBeWatched(
+                Number(userId),
+                Number(movie?.id),
+                movieDetails.title,
+                movieDetails.release_date,
+                movieDetails.poster_path ?? "",
+                accessToken ?? ""
+            ).then(() => {
+                fetchIsAddedInMoviesToWachtList(Number(userId), Number(movie?.id));
+                addToast("success", "Filme adicionado à lista para ser assistido!");
+            })
+            /* .catch((error) => {
+                addToast("error", `Erro ao adicionar o filme à lista: ${error.message}`);
+            }); */
         }
     };
 
@@ -140,7 +156,7 @@ export default function Movie() {
                                     <img src={moviePoster.posters.length > 0 ? `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${moviePoster.posters[0].file_path}` : `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetails.poster_path}`} alt={movieDetails.title} />
                                     <WatchedBtn watched={isWatched} onClick={handleAddToWatched}/>
                                     <FavoriteBtn isFavorite={isFavorite} />
-                                    {!isWatched ? (<AddToListBtn listed={listed} />) : ""}
+                                    {!isWatched ? (<AddToListBtn listed={isAddedInMoviesToWachtList} onClick={handleAddToMovieToWatch}/>) : ""}
                                     <RecommendBtn />
                                 </div>
                                 <div className={style.description}>

@@ -3,7 +3,7 @@ import style from "./style.module.scss";
 
 interface AddToListBtnProps {
   onClick?: () => void;
-  listed: boolean;
+  listed: boolean | null;
 }
 
 export default function AddToListBtn({ onClick, listed }: AddToListBtnProps) {

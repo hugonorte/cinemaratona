@@ -165,7 +165,7 @@ export default function Social() {
           </div>
           <div className={style.favorites}>
             <SearchResultsContainer>
-              <Title tag='h2'>Filmes Recomendados</Title>
+              <Title tag='h2'>Filmes Recomendados pelos seus amigos</Title>
               {
                 moviesDetails.map((favoriteMovie) => (
                   <CardMovieSearch

@@ -31,7 +31,6 @@ export async function getAllMoviesWatched(
     }
     
     const data = await response.json();
-    console.log("foo", data.data.watchedMoviesByUser)
     return data.data.watchedMoviesByUser;
   } catch (error) {
     console.error('Failed to fetch watched movies:', error);

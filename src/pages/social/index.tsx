@@ -13,6 +13,7 @@ import { Link } from 'react-router'
 import Loading from '@/components/loading'
 import { useCurrentUserStore } from '@/store/users/useCurrentUser'
 import { useGetAllMoviesWatched } from '@/store/movie/watched/useWatched'
+import { useGetAllMoviesToBeWatched } from '@/store/movie/toWatch/useGetAllMoviesToBeWatched'
 import { useGetTotalReviewsFromAUser } from '@/store/review/useGetTotalReviewsFromAUser'
 
 export default function Social() {
@@ -23,6 +24,7 @@ export default function Social() {
     totalMoviesWatchedByUser,
     fetchAllMoviesWatchedByUser,
   } = useGetAllMoviesWatched();
+  const { fetchAllMoviesToBeWatchedByUser, moviesToBeWatchedByUser, totalMoviesToBeWatchedByUser } = useGetAllMoviesToBeWatched();
   const {totalReviewsFromUser, fetchTotalReviewsFromUser} = useGetTotalReviewsFromAUser();
  /*  const [ moviesWatched, setMoviesWatched ] = getAllMoviesWatched([]);
   const [ totalMoviesWatched, setTotalMoviesWatched ] = getAllMoviesWatched(0); */
@@ -31,9 +33,10 @@ export default function Social() {
     if (!currentUser) getCurrentUser();
     if (currentUser?.id){
       fetchAllMoviesWatchedByUser(Number(currentUser?.id));
+      fetchAllMoviesToBeWatchedByUser(Number(currentUser?.id));
       fetchTotalReviewsFromUser(Number(currentUser?.id));
     }
-  }, [currentUser, getCurrentUser, fetchAllMoviesWatchedByUser, fetchTotalReviewsFromUser]);
+  }, [currentUser, getCurrentUser, fetchAllMoviesWatchedByUser, fetchTotalReviewsFromUser, fetchAllMoviesToBeWatchedByUser]);
 
   const user = {
     name: currentUser?.name,
@@ -51,7 +54,7 @@ export default function Social() {
   }
 
   const { moviesDetails, fetchFavoritesDetails, isLoading } = useFavoritesStore();
-  const { pendingMoviesToWatchDetails, fetchPendingMoviesToWatchDetails } = usePendingMoviesToWatchStore();
+  const { fetchPendingMoviesToWatchDetails } = usePendingMoviesToWatchStore();
   const hasFetched = useRef(false);
 
   useEffect(() => {
@@ -64,6 +67,8 @@ export default function Social() {
 
 
   if (!moviesDetails || !currentUser) {
+    console.log("currentUser", currentUser);
+    console.log("moviesDetails", moviesDetails);
       return <Loading />;
   }
   return (
@@ -134,7 +139,7 @@ export default function Social() {
                       {/* <p>Ver todos</p> */}
                     </div>
                     <div>
-                      <span>{user.movies_to_watch}</span>
+                      <span>{totalMoviesToBeWatchedByUser}</span>
                       <BiCameraMovie />
                       <Title tag='h3'>
                         Filmes para assistir: 
@@ -165,7 +170,7 @@ export default function Social() {
           </div>
           <div className={style.favorites}>
             <SearchResultsContainer>
-              <Title tag='h2'>Filmes Recomendados</Title>
+              <Title tag='h2'>Filmes Recomendados pelos seus amigos</Title>
               {
                 moviesDetails.map((favoriteMovie) => (
                   <CardMovieSearch
@@ -182,13 +187,13 @@ export default function Social() {
             <SearchResultsContainer>
               <Title tag='h2'>Filmes Para Assistir</Title>
               {
-                pendingMoviesToWatchDetails.map((pendingMovie) => (
+                moviesToBeWatchedByUser?.map((pendingMovie) => (
                   <CardMovieSearch
-                    img_source={pendingMovie.poster_path}
+                    img_source={pendingMovie.poster}
                     title={pendingMovie.title}
                     key={pendingMovie.id}
                     release_date={pendingMovie.release_date}
-                    id={pendingMovie.id} />
+                    id={pendingMovie.movie_id_from_api} />
                 ))
               }
             </SearchResultsContainer>

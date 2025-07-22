@@ -1,11 +1,11 @@
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-export async function getAllMoviesWatched(
+export async function getAllMoviesToBeWatched(
     userId: number,
 ) {
     const query = `
         query {
-            watchedMoviesByUser(user_id: ${userId}) {
+            getAllMoviesToBeWatched(user_id: ${userId}) {
                 total
                 movies {
                     id
@@ -27,11 +27,11 @@ export async function getAllMoviesWatched(
     });
 
     if (!response.ok) {
-      throw new Error(`Error fetching watched movies: ${response.statusText}`);
+      throw new Error(`Error fetching movies to be watched: ${response.statusText}`);
     }
     
     const data = await response.json();
-    return data.data.watchedMoviesByUser;
+    return data.data.getAllMoviesToBeWatched;
   } catch (error) {
     console.error('Failed to fetch watched movies:', error);
     throw error;

@@ -1,18 +1,21 @@
-import ButtonPrimary from '@/components/button/primary';
-import Logo from '@/components/logo';
+import { useEffect, useState } from 'react';
+import { Navigate } from "react-router";
 import style from './style.module.scss';
 import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+
+import ButtonPrimary from '@/components/button/primary';
+import Logo from '@/components/logo';
+
 import { useAuthStore } from '@/store/useAuthStore';
-import { Navigate } from "react-router";
-import { useEffect, useState } from 'react';
 import { useCreateUserStore } from '@/store/users/useCreateUser';
 
 const loginUserSchema = z.object({
     email: z.string().email({ message: "Email inválido" }),
     password: z.string().min(6, { message: "Senha deve ter pelo menos 6 caracteres" }),
 });
+
 type LoginUserSchema = z.infer<typeof loginUserSchema>;
 
 export default function Login() {

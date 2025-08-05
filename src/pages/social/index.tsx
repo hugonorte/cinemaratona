@@ -1,22 +1,29 @@
 import { useEffect, useRef } from 'react'
-import Main from '@/components/containers/main'
-import BaseLayout from '@/components/layout'
-import Title from '@/components/title'
-import style from './style.module.scss'
-import { useFavoritesStore } from '@/store/useFavoritesStore'
-import { usePendingMoviesToWatchStore } from '@/store/usePendingMovies'
-import SearchResultsContainer from '@/components/search/search_results'
-import CardMovieSearch from '@/components/card/movie/search'
-import { BiCameraMovie } from "react-icons/bi";
-import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { Link } from 'react-router'
-import Loading from '@/components/loading'
+import style from './style.module.scss'
+
+import { usePendingMoviesToWatchStore } from '@/store/usePendingMovies'
 import { useCurrentUserStore } from '@/store/users/useCurrentUser'
 import { useGetAllMoviesWatched } from '@/store/movie/watched/useWatched'
 import { useGetAllMoviesToBeWatched } from '@/store/movie/toWatch/useGetAllMoviesToBeWatched'
 import { useGetTotalReviewsFromAUser } from '@/store/review/useGetTotalReviewsFromAUser'
+import { useFavoritesStore } from '@/store/useFavoritesStore'
+import { useAuthStore } from '@/store/useAuthStore'
+
+import Main from '@/components/containers/main'
+import BaseLayout from '@/components/layout'
+import Title from '@/components/title'
+import SearchResultsContainer from '@/components/search/search_results'
+import CardMovieSearch from '@/components/card/movie/search'
+import Loading from '@/components/loading'
+
+import { BiCameraMovie } from "react-icons/bi";
+import { HiOutlinePencilSquare } from "react-icons/hi2";
 
 export default function Social() {
+
+  const { refreshToken } = useAuthStore();
+  refreshToken();
 
   const { currentUser, getCurrentUser } = useCurrentUserStore();
   const {

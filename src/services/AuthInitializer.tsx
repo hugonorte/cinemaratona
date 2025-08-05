@@ -5,11 +5,20 @@ type AuthInitializerProps = {
   children: React.ReactNode;
 };
 export const AuthInitializer = ({ children }: AuthInitializerProps) => {
-  const rehydrateUser = useAuthStore((s) => s.restoreUser);
+  const refreshToken = useAuthStore((s) => s.refreshToken);
 
   useEffect(() => {
-    rehydrateUser();
-  }, [rehydrateUser]);
+    const tryRefresh = async () => {
+      try {
+        await refreshToken();
+        console.info('Access token restaurado via refresh token.');
+      } catch (error) {
+        console.warn('Falha ao restaurar sessão:', error);
+      }
+    };
+
+    tryRefresh();
+  }, [refreshToken]);
 
   return <>{children}</>;
 };

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { loginUser } from '@/api/loginAPI';
-import { jwtDecode } from 'jwt-decode';
+import { refreshTokenApi } from '@/api/refreshTokenApi';
 import { getCurrentUserApi } from '@/api/currentUserApi';
 
 interface User {
@@ -9,30 +9,33 @@ interface User {
   email?: string;
 }
 
-interface DecodedToken {
-  sub: string;
-}
 
 interface AuthState {
   user: User | null;
   accessToken: string | null;
-  refreshToken: string | null;
+
+  setAuth: (accessToken: string, user: User) => void;
+  clearAuth: () => void;
+
   login: (email: string, password: string) => Promise<User>;
-  restoreUser: () => void;
-  isHydrating: boolean;
+  refreshToken: () => Promise<void>;
   currentUser: () => Promise<void>;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
-  accessToken: localStorage.getItem('accessToken'),
-  refreshToken: localStorage.getItem('refreshToken'),
+  accessToken: null,
+  setAuth: (accessToken, user) => {
+    set({ accessToken, user });
+  },
+  clearAuth: () => {
+    set({ accessToken: null, user: null });
+  },
   login: async (email: string, password: string) => {
     try {
-      const { access_token, refresh_token, user } = await loginUser(email, password);
+      const { access_token, user } = await loginUser(email, password);
       localStorage.setItem('accessToken', access_token);
-      localStorage.setItem('refreshToken', refresh_token);
-      set({ user, accessToken: access_token, refreshToken: refresh_token });
+      set({ user, accessToken: access_token });
 
       return user;
     } catch (error) {
@@ -40,28 +43,10 @@ export const useAuthStore = create<AuthState>((set) => ({
       throw error; 
     }
   },
-  restoreUser: async () => {
-    set({ isHydrating: true });
-    const accessToken = localStorage.getItem('accessToken');
-    if (!accessToken) {
-      set({ isHydrating: false });
-      return;
-    }
-
-    try {
-      const decoded = jwtDecode<DecodedToken>(accessToken);
-      set({
-        user: { id: decoded.sub },
-        accessToken,
-        refreshToken: localStorage.getItem('refreshToken'),
-      });
-    } catch (err) {
-      console.error('Token inválido:', err);
-    } finally {
-      set({ isHydrating: false });
-    }
+  refreshToken: async () => {
+    const { access_token, user } = await refreshTokenApi();
+    set({ accessToken: access_token, user });
   },
-  isHydrating: true,
   currentUser: async () => {
     try{
       const meUser = await getCurrentUserApi();

@@ -12,7 +12,6 @@ export const loginUser = async (email: string, password: string) => {
                         password: "${password}"
                     ) {
                         access_token
-                        refresh_token
                         user {
                             id
                             name
